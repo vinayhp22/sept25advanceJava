@@ -1,0 +1,14 @@
+CREATE DATABASE hospitaldb;
+
+USE hospitaldb;
+
+CREATE TABLE patients
+	(
+		id int PRIMARY KEY AUTO_INCREMENT, 
+		patientname VARCHAR(50), 
+        patientid VARCHAR(50) UNIQUE, 
+        patientage int, 
+        patientaddress VARCHAR(500), 
+        admitdate date, 
+        dischargeDate date
+		)
