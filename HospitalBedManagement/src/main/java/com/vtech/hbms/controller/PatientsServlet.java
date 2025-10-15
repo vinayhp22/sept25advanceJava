@@ -7,48 +7,55 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vtech.hbms.model.Patient;
+import com.vtech.hbms.util.DBUtil;
+
 @WebServlet("/read")
 public class PatientsServlet extends HttpServlet{
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitaldb", "root","root");
-			
-			String sql = "SELECT * FROM patients";
-			
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			ResultSet resultSet = stmt.executeQuery();
-			while(resultSet.next()) {
-				String id = resultSet.getString("id");
-				String patientName = resultSet.getString("patientname");
-				int age = resultSet.getInt("patientAge");
-				String patientAddress = resultSet.getString("patientaddress");
-				Timestamp admitdate = resultSet.getTimestamp("admitdate");
-				System.out.println("id"+id+", patientname"+patientName+", patientaddress"+ patientAddress);
-				System.out.println("Age: "+age);
-				System.out.println("admitdate: "+admitdate);
-			}
-			
-			conn.close();
-			stmt.close();
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		List<Patient> patients = new ArrayList<Patient>();
+		String sql = "SELECT * FROM patients";
+		try(Connection conn = new DBUtil().getConnection();
+			PreparedStatement stmt = conn.prepareStatement(sql);) {
+
+			ResultSet resultSet = stmt.executeQuery();
+			while(resultSet.next()) {
+				
+				Patient patient = new Patient();
+				patient.setId(resultSet.getInt("id"));
+				patient.setPatientName(resultSet.getString("patientname"));
+				patient.setPatientAge(resultSet.getInt("patientage"));
+				patient.setAddress(resultSet.getString("patientaddress"));
+				patient.setAdmittedDate(resultSet.getDate("admitdate"));
+				patient.setDischargeDate(resultSet.getDate("dischargeDate"));
+				patient.setStatus(resultSet.getString("status"));
+				patient.setRegisteredtime(resultSet.getTimestamp("registeredtime"));
+				
+				patients.add(patient);
+			}
+			if(patients.size() > 0) {
+				RequestDispatcher rd = req.getRequestDispatcher("patients.jsp");
+				req.setAttribute("patients", patients);
+				rd.forward(req, res);
+				
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} 
 	}
+	
+
 }

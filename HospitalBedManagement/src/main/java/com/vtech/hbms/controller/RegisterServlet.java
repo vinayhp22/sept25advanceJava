@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vtech.hbms.util.DBUtil;
+
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 	@Override
@@ -40,9 +42,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitaldb", "root", "root");
+			Connection conn = new DBUtil().getConnection();
 			
 			String sql = "INSERT INTO patients(patientname, patientage, patientaddress,admitdate, status, registeredtime) VALUES(?,?,?,?,?,?);";
 			PreparedStatement stmt = conn.prepareStatement(sql);
