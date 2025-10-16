@@ -12,7 +12,7 @@ public class Patient {
 	private Date admittedDate;
 	private Date dischargeDate; 
 	private String status;
-	private Timestamp registeredtime;
+	private Timestamp registeredTime;
 	public int getId() {
 		return id;
 	}
@@ -56,12 +56,12 @@ public class Patient {
 		this.status = status;
 	}
 	
-	public Timestamp getRegisteredtime() {
-		return registeredtime;
+	public Timestamp getRegisteredTime() {
+		return registeredTime;
 	}
 	
-	public void setRegisteredtime(Timestamp registeredtime) {
-		this.registeredtime = registeredtime;
+	public void setRegisteredTime(Timestamp registeredTime) {
+		this.registeredTime = registeredTime;
 	}
 
 	

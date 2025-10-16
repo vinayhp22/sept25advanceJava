@@ -20,7 +20,7 @@
 		<th>Registered Date</th>
 		<th>Admitted Date</th>
 		<th>Discharge Date</th>
-		<th>Edit</th>
+		<th>Actions</th>
 	</tr>
 	<% List<Patient> patients =  (List<Patient>)request.getAttribute("patients");
 		for(Patient p : patients){ %>
@@ -30,10 +30,13 @@
 			<td><%= p.getPatientAge() %></td>
 			<td><%= p.getAddress() %></td>
 			<td><%= p.getStatus() %></td>
-			<td><%= p.getRegisteredtime() %></td>
+			<td><%= p.getRegisteredTime() %></td>
 			<td><%= p.getAdmittedDate()%></td>
-			<td><%= p.getDischargeDate() %></td>
-			<td><a href="update?id=<% p.getId(); %>">Edit</a></td>
+			<td><%= p.getDischargeDate() != null ?  p.getDischargeDate() : " "%></td>
+			<td>
+				<a href="update?id=<%= p.getId() %>">Edit</a>
+				<a href="delete?id=<%= p.getId()%>">Delete</a>
+			</td>
 		</tr>
 	<%	}
 	%>

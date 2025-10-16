@@ -41,7 +41,7 @@ public class PatientsServlet extends HttpServlet{
 				patient.setAdmittedDate(resultSet.getDate("admitdate"));
 				patient.setDischargeDate(resultSet.getDate("dischargeDate"));
 				patient.setStatus(resultSet.getString("status"));
-				patient.setRegisteredtime(resultSet.getTimestamp("registeredtime"));
+				patient.setRegisteredTime(resultSet.getTimestamp("registeredtime"));
 				
 				patients.add(patient);
 			}

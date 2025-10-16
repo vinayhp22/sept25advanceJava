@@ -9,6 +9,7 @@
 <body>
 	<h1>Home page</h1>
 	<p> ${registerSuccessMessage}</p>
+	<h3><%= request.getAttribute("updateSuccessMessage") %></h3>
 	
 	
 	<a href="read">Patients List</a>
