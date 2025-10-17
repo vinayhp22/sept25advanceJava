@@ -3,6 +3,8 @@ package com.vtech.hbms.model;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import com.vtech.hbms.constants.Status;
+
 public class Patient {
 
 	private int id;
@@ -11,7 +13,7 @@ public class Patient {
 	private String address;
 	private Date admittedDate;
 	private Date dischargeDate; 
-	private String status;
+	private Status status;
 	private Timestamp registeredTime;
 	public int getId() {
 		return id;
@@ -49,10 +51,10 @@ public class Patient {
 	public void setDischargeDate(Date dischargeDate) {
 		this.dischargeDate = dischargeDate;
 	}
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	
@@ -63,6 +65,14 @@ public class Patient {
 	public void setRegisteredTime(Timestamp registeredTime) {
 		this.registeredTime = registeredTime;
 	}
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", patientName=" + patientName + ", patientAge=" + patientAge + ", address="
+				+ address + ", admittedDate=" + admittedDate + ", dischargeDate=" + dischargeDate + ", status=" + status
+				+ ", registeredTime=" + registeredTime + "]";
+	}
+	
+	
 
 	
 }

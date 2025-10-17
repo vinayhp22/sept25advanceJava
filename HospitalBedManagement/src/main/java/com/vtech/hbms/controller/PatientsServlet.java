@@ -2,6 +2,7 @@ package com.vtech.hbms.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vtech.hbms.constants.Status;
 import com.vtech.hbms.model.Patient;
 import com.vtech.hbms.util.DBUtil;
 
@@ -38,9 +40,14 @@ public class PatientsServlet extends HttpServlet{
 				patient.setPatientName(resultSet.getString("patientname"));
 				patient.setPatientAge(resultSet.getInt("patientage"));
 				patient.setAddress(resultSet.getString("patientaddress"));
-				patient.setAdmittedDate(resultSet.getDate("admitdate"));
-				patient.setDischargeDate(resultSet.getDate("dischargeDate"));
-				patient.setStatus(resultSet.getString("status"));
+				if(resultSet.getDate("admitdate") != Date.valueOf("2000-01-01")) {
+					patient.setAdmittedDate(resultSet.getDate("admitdate"));
+				}
+				if(resultSet.getDate("dischargeDate") != Date.valueOf("2000-01-01")) {
+					patient.setDischargeDate(resultSet.getDate("dischargeDate"));
+				}
+					
+				patient.setStatus(Status.valueOf(resultSet.getString("status")));
 				patient.setRegisteredTime(resultSet.getTimestamp("registeredtime"));
 				
 				patients.add(patient);

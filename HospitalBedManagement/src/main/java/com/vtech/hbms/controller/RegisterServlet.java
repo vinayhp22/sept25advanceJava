@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vtech.hbms.constants.Status;
 import com.vtech.hbms.util.DBUtil;
 
 @WebServlet("/register")
@@ -29,6 +33,7 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.setContentType("text/html");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd", Locale.ENGLISH);
 		String patientName = req.getParameter("patientname");
 //		int patientId = 0;
 		
@@ -39,12 +44,13 @@ public class RegisterServlet extends HttpServlet {
 		Date admitDate = Date.valueOf(LocalDate.parse(admitDateString));
 		String dischargeDateStr = req.getParameter("dischargedate");
 //		LocalDate dischargeDate = LocalDate.parse(dischargeDateStr);
-		
+		System.out.println("String admit date: "+req.getParameter("admitdate"));
+		System.out.println("Admit Date: "+admitDate);
 		
 		try {
 			Connection conn = new DBUtil().getConnection();
 			
-			String sql = "INSERT INTO patients(patientname, patientage, patientaddress,admitdate, status, registeredtime) VALUES(?,?,?,?,?,?);";
+			String sql = "INSERT INTO patients(patientname, patientage, patientaddress,admitdate , status, registeredtime) VALUES(?,?,?,?,?,?);";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, patientName);
 //			patientId++;
@@ -52,7 +58,7 @@ public class RegisterServlet extends HttpServlet {
 			stmt.setInt(2, patientAge);
 			stmt.setString(3, patientAddress);
 			stmt.setDate(4, admitDate);
-			stmt.setString(5, "registered");
+			stmt.setString(5, Status.REGISTERED.name());
 			stmt.setTimestamp(6, Timestamp.valueOf(LocalDateTime.now()));
 			
 			int rows = stmt.executeUpdate();

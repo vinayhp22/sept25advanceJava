@@ -16,7 +16,14 @@
 		Patient Age: <input type="number" name="patientage" readonly="readonly" value="<%= patient.getPatientAge() %>">
 		Address: <textarea rows="5" cols="50" name="patientaddress" readonly="readonly"><%= patient.getAddress() %></textarea>
 		Registered date <input type="date" name="registeredtime"  readonly="readonly" value="<%= patient.getRegisteredTime() %>">
-		Admitted date: <input type="date" name="admitdate" value="<%= patient.getAdmittedDate() %>>">
+		<% java.sql.Date admittedDate = patient.getAdmittedDate();
+	    String formattedAdmitDate = ""; // Initialize with empty string
+
+	    if (admittedDate != null) {
+	        // Use java.time.LocalDate for modern, clearer date handling
+	        formattedAdmitDate = admittedDate.toLocalDate().toString();
+	    } %>
+		Admitted date: <input type="date" name="admitdate" value="<%= formattedAdmitDate %>>">
 		Discharge Date: <input type="date" name="dischargedate" value="<%= patient.getDischargeDate()%>">
 		Status: <select name="status"> 
 					<option value="">Select one option</option>
