@@ -20,10 +20,11 @@ public class ParamSerlvelt extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
-		
+		out.println("<h1><b>HttpServletRequest<h1><b>");
+		out.println("<h1>1. Request Parameters</h1>");
 		out.println("<h2>HttpServletRequest parameter methods</h2>");
 		
-//		1. getParameter(String name)
+//		1. getParameter(String name) - single value for a parameter
 		String name = req.getParameter("name");
 		String mobile = req.getParameter("mobile");
 		
@@ -50,7 +51,7 @@ public class ParamSerlvelt extends HttpServlet{
 			out.println("Parameter Name: "+paramname +"<br>");
 		}
 		
-//		4. getParameterMap() - all parameters
+//		4. getParameterMap() - all parameters along values
 		Map<String, String[]> paramMap = req.getParameterMap();
 		out.println("<h3>getParameterMap()</h3>");
 		for(Map.Entry<String, String[]> entry : paramMap.entrySet()) {
