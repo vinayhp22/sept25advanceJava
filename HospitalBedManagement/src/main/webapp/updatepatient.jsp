@@ -27,9 +27,9 @@
 		Discharge Date: <input type="date" name="dischargedate" value="<%= patient.getDischargeDate()%>">
 		Status: <select name="status"> 
 					<option value="">Select one option</option>
-					<option value="registered">Registered</option>
-					<option value="admitted">Admitted</option>
-					<option value="discharged">Discharged</option>
+					<option value="REGISTERED">Registered</option>
+					<option value="ADMITED">Admitted</option>
+					<option value="DISCHARGED">Discharged</option>
 				</select>
 		<input type="submit" value="Update">
 	</form>

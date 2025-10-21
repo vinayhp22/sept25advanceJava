@@ -21,6 +21,7 @@ public class ParamSerlvelt extends HttpServlet{
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		out.println("<h1><b>HttpServletRequest<h1><b>");
+		
 		out.println("<h1>1. Request Parameters</h1>");
 		out.println("<h2>HttpServletRequest parameter methods</h2>");
 		

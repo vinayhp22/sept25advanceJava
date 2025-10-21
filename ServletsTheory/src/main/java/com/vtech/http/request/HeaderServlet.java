@@ -19,7 +19,7 @@ public class HeaderServlet extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		
 		out.println("<h1>2. Request Headers</h1>");
-		out.println("<p>Metadate send by the client, like browser type, cookies, languages etc </p> <br>");
+		out.println("<p>Metadata send by the client, like browser type, cookies, languages etc </p> <br>");
 
 //		1. getHeader(String)
 		out.println("<h2>1. getHeader(String)</h2>");
@@ -51,6 +51,7 @@ public class HeaderServlet extends HttpServlet{
 		Object messageObj = req.getAttribute("message");
 		String msg = (String) messageObj;
 		out.println("<p>Message from request attribute: "+msg+"</p>");
+		
 		out.println("<h2>3. removeAttribute(String)</h2>");
 		req.removeAttribute("message");
 		Object messageObj1 = req.getAttribute("message");

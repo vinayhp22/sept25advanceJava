@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% HttpSession s = request.getSession(false); 
+	if(s==null || session.getAttribute("username")==null){
+		response.sendRedirect("login.jsp");
+	}
+%>
 	<h1>Home page</h1>
 	<p> ${registerSuccessMessage}</p>
 	<h3><%= request.getAttribute("updateSuccessMessage") %></h3>
