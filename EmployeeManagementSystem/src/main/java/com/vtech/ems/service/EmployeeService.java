@@ -1,0 +1,15 @@
+package com.vtech.ems.service;
+
+import com.vtech.ems.model.Employee;
+import com.vtech.ems.repository.EmployeeRepository;
+
+public class EmployeeService {
+	
+	private EmployeeRepository repo;
+	
+	public void saveEmployee(Employee employee) {
+		repo = new EmployeeRepository();
+		repo.saveEmployee(employee);
+	}
+
+}
