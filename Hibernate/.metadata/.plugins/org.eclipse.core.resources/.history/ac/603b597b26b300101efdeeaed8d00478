@@ -1,0 +1,38 @@
+package com.vtech.ems.controller;
+
+import java.util.List;
+
+import com.vtech.ems.model.Employee;
+import com.vtech.ems.service.EmployeeService;
+
+public class EmployeeController {
+
+	
+	public static void main(String[] args) {
+		
+		EmployeeService service = new EmployeeService();
+		Employee employee = new Employee();
+		
+		//1. Create Operation
+		employee.setName("Ramu");
+		employee.setDepartment("Customer Helpdesk");
+		employee.setSalary(100000);
+//		service.saveEmployee(employee);
+		
+		
+		//2. Read Operation
+		//Employee emp1 = service.getEmployeeById(1);
+		//System.out.println(emp1.toString());
+		
+		List<Employee> employees = service.getAllEmployees();
+		employees.stream().forEach(e->System.out.println(e.toString()));
+		
+		//3. Update Operation
+		employee = service.getEmployeeById(3);
+		employee.setDepartment("NON-IT");
+		employee.setSalary(20000);
+		service.updateEmployee(employee);
+		
+		service.deleteEmployee(4);
+	}
+}

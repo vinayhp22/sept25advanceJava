@@ -1,0 +1,16 @@
+package com.vtech.ems.repository;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.vtech.ems.model.Employee;
+import com.vtech.ems.util.HibernateUtil;
+
+public class EmployeeRepository {
+
+	public void saveEmployee(Employee employee) {
+		Transaction tr;
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		sessionFactory.openSession();
+	}
+}

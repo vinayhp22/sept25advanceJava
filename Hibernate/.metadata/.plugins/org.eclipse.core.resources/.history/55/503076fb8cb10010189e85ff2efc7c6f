@@ -1,0 +1,10 @@
+package com.vtech.ems.repository;
+
+import com.vtech.ems.model.Employee;
+
+public class EmployeeRepository {
+
+	public void saveEmployee(Employee employee) {
+		
+	}
+}

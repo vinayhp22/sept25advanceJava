@@ -1,0 +1,16 @@
+package com.vtech.ems.controller;
+
+import java.security.Provider.Service;
+
+import com.vtech.ems.service.EmployeeService;
+
+public class EmployeeController {
+
+	private EmployeeService service;
+	
+	public static void main(String[] args) {
+		
+		service = new EmployeeService();
+		
+	}
+}

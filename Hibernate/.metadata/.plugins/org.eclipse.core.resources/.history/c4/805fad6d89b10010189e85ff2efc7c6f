@@ -1,0 +1,5 @@
+package com.vtech.ems.model;
+
+public class Employee {
+
+}

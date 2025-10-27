@@ -1,0 +1,57 @@
+1:48:11 Microsoft.Shutdown.OnWindowClosingPostClearBrowsingData_NoBrowsingDataCleared
+1:48:11 Microsoft.Shutdown.TabStripModel.CloseAllTabs
+1:48:11 Microsoft.Shutdown.TabStripModel.CloseTabs
+1:48:11 Microsoft.Shutdown.TabStripModel.CloseTabs_EdgeBeforeClosingAllTabs
+1:48:11 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl
+1:48:11 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl_TabClosable
+1:48:11 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl_ClosingAll
+1:48:11 Microsoft.Shutdown.TabStripModel.CloseWebContentses
+1:48:11 Microsoft.Shutdown.TabStripModel.CloseWebContentses_FastShutdown
+1:48:11 Microsoft.Shutdown.TabStripModel.ShouldRunUnloadListenerBeforeClosing_false
+1:48:11 Tab60 RenderProcessGone
+1:48:11 Microsoft.UnloadController.ClearUnloadState
+1:48:11 Microsoft.Shutdown.TabStripModel.RunUnloadListenerBeforeClosing_false
+1:48:11 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl_ClosedAll
+1:48:11 Microsoft.Shutdown.TabStripModel.SendDetachWebContentsNotifications
+1:48:11 Microsoft.UnloadController.ClearUnloadState
+1:48:11 Browser60 Close Tab60 at 0
+1:48:11 Tab60 WebContentsDestroyed
+1:48:11 Microsoft.UnloadController.TabStripEmpty
+1:48:11 Microsoft.UnloadController.IsUnclosableApp_IsNotWebApp
+1:48:11 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+1:48:11 Microsoft.Shutdown.OnWindowClosing
+1:48:11 Microsoft.UnloadController.IsUnclosableApp_IsNotWebApp
+1:48:11 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+1:48:11 Microsoft.Shutdown.OnWindowClosingPostClearBrowsingData_NoBrowsingDataCleared
+1:48:11 Widget Closed: BrowserFrame
+1:48:11 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+1:48:11 Microsoft.Shutdown.OnWindowClosing
+1:48:11 Microsoft.Shutdown.OnWindowClosing_DeleteScheduled
+1:48:11 Microsoft.Browser_Removed
+1:48:36 Tab56 StartNav611 #typed
+1:48:36 Tab56 FinishNav611
+1:48:36 Tab56 PageLoad
+1:48:46 Tab48 StartNav612 #typed
+1:48:46 Tab48 FinishNav612
+1:48:46 Tab48 PageLoad
+1:48:50 Tab56 StartNav613 #typed
+1:48:50 Tab56 FinishNav613
+1:48:50 Tab56 PageLoad
+1:48:53 Tab56 StartNav614 #typed
+1:48:53 Tab56 FinishNav614
+1:48:53 Tab56 PageLoad
+1:49:02 Tab48 StartNav615 #typed
+1:49:02 Tab48 FinishNav615
+1:49:02 Tab48 PageLoad
+1:51:29 Tab48 StartNav616 #typed
+1:51:29 Tab48 FinishNav616
+1:51:29 Tab48 PageLoad
+1:51:31 Tab56 StartNav617 #typed
+1:51:31 Tab56 FinishNav617
+1:51:31 Tab56 PageLoad
+1:51:55 Tab56 StartNav618 #typed
+1:51:55 Tab56 FinishNav618
+1:51:55 Tab56 PageLoad
+1:52:03 Tab56 StartNav619 #typed
+1:52:03 Tab56 FinishNav619
+1:52:03 Tab56 PageLoad

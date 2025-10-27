@@ -1,0 +1,28 @@
+package com.vtech.ems.service;
+
+import java.util.List;
+
+import com.vtech.ems.model.Employee;
+import com.vtech.ems.repository.EmployeeRepository;
+
+public class EmployeeService {
+	
+	private EmployeeRepository repo;
+	
+	public void saveEmployee(Employee employee) {
+		repo = new EmployeeRepository();
+		repo.saveEmployee(employee);
+	}
+
+	public Employee getEmployeeById(int id) {
+		return new EmployeeRepository().getEmployeeById(id);
+	}
+	
+	public List<Employee> getAllEmployees(){
+		return new EmployeeRepository().getAllEmployees();
+	}
+	
+	public void updateEmployee(Employee employee) {
+		new EmployeeRepository().updateEmployee(employee);
+	}
+}

@@ -1,0 +1,5 @@
+package com.vtech.ems.repository;
+
+public class EmployeeRepository {
+
+}

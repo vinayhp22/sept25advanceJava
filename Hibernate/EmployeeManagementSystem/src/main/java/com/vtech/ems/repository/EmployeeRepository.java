@@ -1,0 +1,93 @@
+package com.vtech.ems.repository;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.vtech.ems.model.Employee;
+import com.vtech.ems.util.HibernateUtil;
+
+public class EmployeeRepository {
+
+	public void saveEmployee(Employee employee) {
+		Transaction tr = null;
+		try(SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
+			Session session = sessionFactory.openSession();) {
+
+			tr = session.beginTransaction();
+
+			session.save(employee);
+
+			tr.commit();
+			System.out.println("Employee Added Successfully");
+			
+		} catch (Exception e) {
+			if (tr != null)
+				tr.rollback();
+			e.printStackTrace();
+		}
+	}
+
+	public Employee getEmployeeById(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession();){
+			return session.get(Employee.class, id);
+		}
+	}
+	
+	public List<Employee> getAllEmployees(){
+		try(Session session = HibernateUtil.getSessionFactory().openSession();){
+			return session.createQuery("from Employee", Employee.class).list();
+		}
+	}
+	
+	public void updateEmployee(Employee employee) {
+		Transaction tr = null;
+		try(Session session = HibernateUtil.getSessionFactory().openSession();){
+			
+			tr = session.beginTransaction();
+			session.update(employee);
+			tr.commit();
+			System.out.println("Updated Successfully");
+		}catch (Exception e) {
+			if(tr!= null) tr.rollback();
+			e.printStackTrace();
+		}
+	}
+	public void deleteEmployee(int id) {
+		Transaction tr = null;
+		try(Session session = HibernateUtil.getSessionFactory().openSession();){
+			tr = session.beginTransaction();
+			Employee emp = getEmployeeById(id);
+			session.delete(emp);
+			tr.commit();
+			System.out.println("Deleted Successfully...");
+		} catch (Exception e) {
+			if(tr!=null) tr.rollback();
+			e.printStackTrace();
+		}
+		
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,21 @@
+package com.vtech.ems.controller;
+
+import com.vtech.ems.model.Employee;
+import com.vtech.ems.service.EmployeeService;
+
+public class EmployeeController {
+
+	
+	public static void main(String[] args) {
+		
+		EmployeeService service = new EmployeeService();
+		Employee employee = new Employee();
+		
+		//1. Create Operation
+		employee.setName("Raju");
+		employee.setDepartment("IT");
+		employee.setSalary(500000);
+		service.saveEmployee(employee);
+		
+	}
+}

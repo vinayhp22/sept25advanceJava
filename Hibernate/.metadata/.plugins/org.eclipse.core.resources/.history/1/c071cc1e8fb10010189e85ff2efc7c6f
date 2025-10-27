@@ -1,0 +1,8 @@
+package com.vtech.ems.controller;
+
+public class EmployeeController {
+
+	public static void main(String[] args) {
+		
+	}
+}

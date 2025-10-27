@@ -1,0 +1,48 @@
+package com.vtech.ems.repository;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.vtech.ems.model.Employee;
+import com.vtech.ems.util.HibernateUtil;
+
+public class EmployeeRepository {
+
+	public void saveEmployee(Employee employee) {
+		Transaction tr = null;
+		try(SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
+			Session session = sessionFactory.openSession();) {
+
+			tr = session.beginTransaction();
+
+			session.save(employee);
+
+			tr.commit();
+			System.out.println("Employee Added Successfully");
+			
+		} catch (Exception e) {
+			if (tr != null)
+				tr.rollback();
+			e.printStackTrace();
+		}
+	}
+
+	public Employee getEmployeeById(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession();){
+			return session.get(Employee.class, id);
+		}
+	}
+	
+	public List<Employee> getAllEmployees(){
+		try(Session session = HibernateUtil.getSessionFactory().openSession();){
+			return session.createQuery("from Employee", Employee.class).list();
+		}
+	}
+	
+	
+
+}
