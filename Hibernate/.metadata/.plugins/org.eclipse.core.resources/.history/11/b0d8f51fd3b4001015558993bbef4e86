@@ -1,0 +1,5 @@
+package com.vtech.ams.controller;
+
+public class AttendanceController {
+
+}

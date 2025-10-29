@@ -1,0 +1,63 @@
+package com.vtech.ams.dao;
+
+import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import com.vtech.ams.model.Attendance;
+import com.vtech.ams.util.DbUtil;
+
+public class AttendanceDAO {
+
+	public void saveAttendance(Attendance attendance) {
+		Transaction tx = null;
+		Session session = null;
+		try {
+			session = DbUtil.getSessionFactory().openSession();
+			tx = session.beginTransaction();
+			session.save(attendance);
+			tx.commit();
+			System.out.println("Attendance added successfully...");
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+	}
+	
+	public Attendance getAttendanceById(int id) {
+		try(Session session = DbUtil.getSessionFactory().openSession();) {
+			return session.get(Attendance.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<Attendance> getAllAttendance() {
+		try(Session session = DbUtil.getSessionFactory().openSession();) {
+			return session.createQuery("from Attendance", Attendance.class).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public void updateAttendance(Attendance attendance) {
+		Transaction tx = null;
+		Session session = null;
+		try {
+			session = DbUtil.getSessionFactory().openSession();
+			tx = session.beginTransaction();
+			session.update(attendance);
+			tx.commit();
+			System.out.println("Attendance added successfully...");
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+}

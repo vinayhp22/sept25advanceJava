@@ -1,0 +1,8 @@
+package com.vtech.ams.util;
+
+import org.hibernate.SessionFactory;
+
+public class DbUtil {
+
+	private static SessionFactory sessionFactory;
+}

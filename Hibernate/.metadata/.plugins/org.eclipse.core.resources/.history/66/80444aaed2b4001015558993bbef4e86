@@ -1,0 +1,22 @@
+package com.vtech.ams.dao;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.vtech.ams.model.Attendance;
+import com.vtech.ams.util.DbUtil;
+
+public class AttendanceDAO {
+
+	public void saveAttendance(Attendance attendance) {
+		Transaction tx = null;
+		Session session = null;
+		try {
+			session = DbUtil.getSessionFactory().openSession();
+			tx = session.beginTransaction();
+			session.save(attendance);
+			tx.commit();
+		}
+		
+	}
+}

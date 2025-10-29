@@ -1,0 +1,19 @@
+package com.vtech.ams.controller;
+
+import com.vtech.ams.dao.AttendanceDAO;
+import com.vtech.ams.model.Attendance;
+
+public class AttendanceController {
+
+	private static AttendanceDAO dao;
+	
+	public static void main(String[] args) {
+		
+		Attendance varun = new Attendance("Varun", 72989208272L, true);
+		dao = new AttendanceDAO();
+		dao.saveAttendance(varun);
+		
+		Attendance praveen = new Attendance("Praveen", 98220208117L, true);
+		Attendance zaheer = new Attendance("Zaheer", 398093939L, false);
+	}
+}

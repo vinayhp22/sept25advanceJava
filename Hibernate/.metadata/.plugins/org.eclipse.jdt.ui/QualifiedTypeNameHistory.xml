@@ -5,12 +5,13 @@
     <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
     <fullyQualifiedTypeName name="java.util.Properties"/>
     <fullyQualifiedTypeName name="org.hibernate.boot.registry.StandardServiceRegistryBuilder"/>
-    <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
-    <fullyQualifiedTypeName name="com.vtech.ems.util.HibernateUtil"/>
     <fullyQualifiedTypeName name="java.io.Serial"/>
     <fullyQualifiedTypeName name="java.security.Provider.Service"/>
+    <fullyQualifiedTypeName name="org.hibernate.cfg.Environment"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.vtech.ems.service.EmployeeService"/>
     <fullyQualifiedTypeName name="com.vtech.ems.model.Employee"/>
+    <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
+    <fullyQualifiedTypeName name="com.vtech.ems.util.HibernateUtil"/>
     <fullyQualifiedTypeName name="com.vtech.ems.repository.EmployeeRepository"/>
-    <fullyQualifiedTypeName name="org.hibernate.cfg.Environment"/>
 </qualifiedTypeNameHistroy>

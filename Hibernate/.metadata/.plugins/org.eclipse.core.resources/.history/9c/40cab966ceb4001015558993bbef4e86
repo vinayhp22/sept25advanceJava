@@ -1,0 +1,12 @@
+package com.vtech.ams.model;
+
+import java.util.Date;
+
+public class Attendance {
+
+	private int id;
+	private String name;
+	private long mobile;
+	private boolean isAttended;
+
+}

@@ -1,0 +1,21 @@
+package com.vtech.ams.model;
+
+import java.util.Date;
+
+public class Attendance {
+
+	private int id;
+	private String name;
+	private long mobile;
+	private boolean isAttended;
+	
+	public Attendance(String name, long mobile, boolean isAttended) {
+		super();
+		this.name = name;
+		this.mobile = mobile;
+		this.isAttended = isAttended;
+	}
+	
+	
+
+}

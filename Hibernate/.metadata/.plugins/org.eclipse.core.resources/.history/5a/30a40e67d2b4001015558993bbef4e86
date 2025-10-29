@@ -1,0 +1,5 @@
+package com.vtech.ams.dao;
+
+public class AttendanceDAO {
+
+}

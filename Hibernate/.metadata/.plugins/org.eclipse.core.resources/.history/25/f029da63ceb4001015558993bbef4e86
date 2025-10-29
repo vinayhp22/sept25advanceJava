@@ -1,0 +1,5 @@
+package com.vtech.ams.model;
+
+public class Attendance {
+
+}
