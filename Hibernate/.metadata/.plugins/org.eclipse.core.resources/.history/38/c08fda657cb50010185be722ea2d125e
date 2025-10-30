@@ -1,0 +1,18 @@
+package com.vtech.bus.ticketbooking.repository;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.vtech.bus.ticketbooking.model.TicketBooking;
+import com.vtech.bus.ticketbooking.util.HibernateUtil;
+
+public class TicketBookingRepository {
+	
+	public void saveTicketBooking(TicketBooking ticketBooking){
+		Transaction tx = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		tx = session.beginTransaction();
+		session.save(ticketBooking);
+		
+	}
+}

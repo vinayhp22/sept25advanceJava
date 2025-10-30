@@ -50,24 +50,30 @@ public class AttendanceDAO {
 		try {
 			session = DbUtil.getSessionFactory().openSession();
 			tx = session.beginTransaction();
-			
-			
-			if (attendance.getId() != 0) {
-				Attendance retrivedObject = getAttendanceById(attendance.getId());
-				if (attendance.getName()==null) {
-					attendance.setName(retrivedObject.getName());
-				}
-				if (attendance.getMobile() == 0) {
-					attendance.setMobile(retrivedObject.getMobile());
-				}
-				if (attendance.isAttended() && retrivedObject.isAttended() == true) {
-					attendance.setAttended(retrivedObject.isAttended());
-				}
-				session.update(attendance);
-				tx.commit();
-				System.out.println("Attendance updated successfully...");
-			}
-			
+
+			session.update(attendance);
+			tx.commit();
+			System.out.println("Attendance updated successfully...");
+
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	public void deleteAttendance(Attendance attendance) {
+		Transaction tx = null;
+		Session session = null;
+		try {
+			session = DbUtil.getSessionFactory().openSession();
+			tx = session.beginTransaction();
+
+			session.delete(attendance);
+			tx.commit();
+			System.out.println("Attendance deleted successfully...");
+
 		} catch (Exception e) {
 			tx.rollback();
 			e.printStackTrace();

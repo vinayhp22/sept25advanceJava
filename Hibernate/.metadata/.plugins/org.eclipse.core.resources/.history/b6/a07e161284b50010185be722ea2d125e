@@ -1,0 +1,32 @@
+package com.vtech.bus.ticketbooking.controller;
+
+import java.sql.Date;
+import java.util.List;
+
+import com.vtech.bus.ticketbooking.constants.Gender;
+import com.vtech.bus.ticketbooking.model.TicketBooking;
+import com.vtech.bus.ticketbooking.repository.TicketBookingRepository;
+import com.vtech.bus.ticketbooking.service.TicketBookingService;
+
+public class TicketBookingController {
+
+	public static void main(String[] args) {
+		TicketBookingRepository repository = new TicketBookingRepository();
+		TicketBookingService service = new TicketBookingService();
+//		TicketBooking varun = new TicketBooking("Varun", Gender.MALE, "Bengaluru", "Shivmogga", 500, Date.valueOf("2025-10-30"));
+//		repository.saveTicketBooking(varun);
+		
+//		TicketBooking ticketBooking = repository.getTicketBookingById(1);
+//		System.out.println(ticketBooking.toString());
+		TicketBooking praveen = new TicketBooking("Praveen", Gender.MALE, "Bengaluru", "Shivmogga", 500, Date.valueOf("2025-10-30"));
+		repository.saveTicketBooking(praveen);
+		
+		List<TicketBooking> ticketBookings = repository.getTicketBookings();
+		ticketBookings.stream().forEach(e -> System.out.println(e.toString()));
+		
+		TicketBooking updatedTB = new TicketBooking();
+		updatedTB.setId(2);
+		updatedTB.setDestination("Mangalore");
+		service.updateTicketBooking(updatedTB);
+	}
+}

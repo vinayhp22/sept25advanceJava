@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-mapping package="com.vtech.bus.ticketbooking.model">
+	<class name="TicketBooking" table="tickets">
+		<id name="id" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="customerName" column="customer_name" />
+		<property name="gender" column="gender" />
+		<property name="arrival" column="arrival" />
+		<property name="destination" column="destination" />
+		<property name="price" column="price" />
+		<property name="date" column="date" />
+	</class>
+</hibernate-mapping>

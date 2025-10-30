@@ -3,14 +3,17 @@ package com.vtech.ams.controller;
 import java.util.List;
 
 import com.vtech.ams.dao.AttendanceDAO;
+import com.vtech.ams.dto.AttendanceDTO;
 import com.vtech.ams.model.Attendance;
 
 public class AttendanceController {
 
 	private static AttendanceDAO dao;
+	private static AttendanceDTO dto;
 	
 	public static void main(String[] args) {
 		dao = new AttendanceDAO();
+		dto = new AttendanceDTO();
 //		Attendance varun = new Attendance("Varun", 72989208272L, true);
 //		dao.saveAttendance(varun);
 //		
@@ -26,11 +29,17 @@ public class AttendanceController {
 //		List<Attendance> attendances = dao.getAllAttendance();
 //		attendances.stream().forEach(e -> System.out.println(e.toString()));
 		
-		Attendance updateAttendance = new Attendance();
-		updateAttendance.setId(1);
+//		Attendance updateAttendance = new Attendance();
+//		updateAttendance.setId(3);
 //		updateAttendance.setName("Varun K T");
 //		updateAttendance.setMobile(2772929892L);
-		updateAttendance.setAttended(true);
-		dao.updateAttendance(updateAttendance);
+//		updateAttendance.setAttended(true);
+//		dto.updateAttendance(updateAttendance);
+//		
+//		Attendance rakesh = new Attendance("Rakesh", 2879828297L, false);
+//		dao.saveAttendance(rakesh);
+		
+		dto.deleteAttandance(4);
+		
 	}
 }

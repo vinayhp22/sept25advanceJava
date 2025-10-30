@@ -1,0 +1,17 @@
+package com.vtech.bus.ticketbooking.controller;
+
+import java.sql.Date;
+
+import com.vtech.bus.ticketbooking.constants.Gender;
+import com.vtech.bus.ticketbooking.model.TicketBooking;
+import com.vtech.bus.ticketbooking.repository.TicketBookingRepository;
+
+public class TicketBookingController {
+
+	public static void main(String[] args) {
+		TicketBookingRepository repository = new TicketBookingRepository();
+		
+		TicketBooking varun = new TicketBooking("Varun", Gender.MALE, "Bengaluru", "Shivmogga", 500, Date.valueOf("2025-10-30"));
+		repository.saveTicketBooking(varun);
+	}
+}

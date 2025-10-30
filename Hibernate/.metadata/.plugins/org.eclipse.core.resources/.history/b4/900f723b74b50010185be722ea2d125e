@@ -1,0 +1,5 @@
+package com.vtech.ams.dto;
+
+public class AttendanceDTO {
+
+}

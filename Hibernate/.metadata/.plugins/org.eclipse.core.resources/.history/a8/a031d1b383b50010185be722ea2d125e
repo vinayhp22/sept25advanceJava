@@ -1,0 +1,34 @@
+package com.vtech.bus.ticketbooking.service;
+
+import com.vtech.bus.ticketbooking.model.TicketBooking;
+import com.vtech.bus.ticketbooking.repository.TicketBookingRepository;
+
+public class TicketBookingService {
+
+	public void updateTicketBooking(TicketBooking ticketBooking){
+		TicketBookingRepository repository = new TicketBookingRepository();
+		TicketBooking retrivedTB = repository.getTicketBookingById(ticketBooking.getId());
+		if(retrivedTB == null) {
+			System.out.println("There is no data for id: "+ticketBooking.getId());
+			return;
+		}
+		if(ticketBooking != null) {
+			if(ticketBooking.getCustomerName() == null) {
+				ticketBooking.setCustomerName(retrivedTB.getCustomerName());
+			}
+			if(ticketBooking.getArrival() == null) {
+				ticketBooking.setArrival(retrivedTB.getArrival());
+			}
+			if(ticketBooking.getDestination() == null) {
+				ticketBooking.setDestination(retrivedTB.getDestination());
+			}
+			if(ticketBooking.getGender() == null) {
+				ticketBooking.setGender(retrivedTB.getGender());
+			}
+			if(ticketBooking.getPrice() == 0) {
+				ticketBooking.setPrice(retrivedTB.getPrice());
+			}
+			
+		}
+	}
+}

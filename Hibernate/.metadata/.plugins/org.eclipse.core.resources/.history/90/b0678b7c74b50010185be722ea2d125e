@@ -1,0 +1,25 @@
+package com.vtech.ams.dto;
+
+import com.vtech.ams.model.Attendance;
+
+public class AttendanceDTO {
+
+	public void updateAttendance(Attendance attendance) {
+		
+		if (attendance.getId() != 0) {
+			Attendance retrivedObject = getAttendanceById(attendance.getId());
+			if(retrivedObject==null) {
+				System.out.println("No data is present for id: "+attendance.getId());
+				return;
+			}
+			if (attendance.getName()==null) {
+				attendance.setName(retrivedObject.getName());
+			}
+			if (attendance.getMobile() == 0) {
+				attendance.setMobile(retrivedObject.getMobile());
+			}
+			if (attendance.isAttended() && retrivedObject.isAttended() == true) {
+				attendance.setAttended(retrivedObject.isAttended());
+			}
+	}
+}

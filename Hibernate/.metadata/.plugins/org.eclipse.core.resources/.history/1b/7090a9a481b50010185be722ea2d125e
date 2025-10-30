@@ -1,0 +1,31 @@
+package com.vtech.bus.ticketbooking.repository;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.vtech.bus.ticketbooking.model.TicketBooking;
+import com.vtech.bus.ticketbooking.util.HibernateUtil;
+
+public class TicketBookingRepository {
+
+	public void saveTicketBooking(TicketBooking ticketBooking) {
+		Transaction tx = null;
+
+		try (Session session = HibernateUtil.getSessionFactory().openSession();) {
+
+			tx = session.beginTransaction();
+			session.save(ticketBooking);
+			tx.commit();
+			System.out.println("Ticket Booked Successfully");
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+		}
+	}
+	
+	public TicketBooking getTicketBookingById(int id) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession();) {
+			return session.createNamedQuery("from TicketBooking", id);
+		} 
+	}
+}

@@ -1,0 +1,10 @@
+package com.vtech.ams.dto;
+
+import com.vtech.ams.model.Attendance;
+
+public class AttendanceDTO {
+
+	public void updateAttendance(Attendance attendance) {
+		
+	}
+}

@@ -1,0 +1,17 @@
+package com.vtech.bus.ticketbooking.util;
+
+import org.hibernate.SessionFactory;
+
+public class HibernateUtil {
+
+	private SessionFactory sessionFactory;
+	
+	public SessionFactory getSessionFactory() {
+		
+		
+		
+		
+		
+		return sessionFactory;
+	}
+}

@@ -1,0 +1,41 @@
+package com.vtech.ams.dto;
+
+import com.vtech.ams.dao.AttendanceDAO;
+import com.vtech.ams.model.Attendance;
+
+public class AttendanceDTO {
+
+	private AttendanceDAO dao;
+
+	public void updateAttendance(Attendance attendance) {
+		
+		dao = new AttendanceDAO();
+		if (attendance.getId() != 0) {
+			Attendance retrivedObject = dao.getAttendanceById(attendance.getId());
+			if(retrivedObject==null) {
+				System.out.println("No data is present for id: "+attendance.getId());
+				return;
+			}
+			if (attendance.getName()==null) {
+				attendance.setName(retrivedObject.getName());
+			}
+			if (attendance.getMobile() == 0) {
+				attendance.setMobile(retrivedObject.getMobile());
+			}
+			if (attendance.isAttended() && retrivedObject.isAttended() == true) {
+				attendance.setAttended(retrivedObject.isAttended());
+			}
+		}
+		dao.updateAttendance(attendance);
+	}
+	
+	public void deleteAttandance(int id) {
+		dao = new AttendanceDAO();
+		Attendance retrivedObject = dao.getAttendanceById(id);
+		if(retrivedObject==null) {
+			System.out.println("No data is present for id: "+id);
+			return;
+		}
+		dao.deleteAttendance(retrivedObject);
+	}
+}

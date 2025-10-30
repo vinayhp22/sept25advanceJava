@@ -1,0 +1,5 @@
+package com.vtech.bus.ticketbooking.service;
+
+public class TicketBookingService {
+
+}

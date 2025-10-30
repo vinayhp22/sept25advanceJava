@@ -1,0 +1,13 @@
+package com.vtech.bus.ticketbooking.controller;
+
+import com.vtech.bus.ticketbooking.repository.TicketBookingRepository;
+
+public class TicketBookingController {
+
+	public static void main(String[] args) {
+		TicketBookingRepository repository = new TicketBookingRepository();
+		
+		new TicketBookingController
+		repository.saveTicketBooking(null);
+	}
+}

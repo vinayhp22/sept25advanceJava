@@ -1,0 +1,17 @@
+package com.vtech.bus.ticketbooking.model;
+
+import java.util.Date;
+
+import com.vtech.bus.ticketbooking.constants.Gender;
+
+public class TicketBooking {
+
+	private int id;
+	private String customerName;
+	private Gender gender;
+	private String arrival;
+	private String destination;
+	private double price;
+	private Date date;
+	
+}

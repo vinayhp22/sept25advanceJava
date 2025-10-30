@@ -1,0 +1,11 @@
+package com.vtech.bus.ticketbooking.model;
+
+public class TicketBooking {
+
+	private int id;
+	private String customerName;
+	private 
+	private String arrival;
+	private String destination;
+	
+}
