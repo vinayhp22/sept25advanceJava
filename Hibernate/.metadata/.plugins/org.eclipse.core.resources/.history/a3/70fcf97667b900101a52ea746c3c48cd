@@ -1,0 +1,30 @@
+package com.vtech.cm.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.vtech.cm.model.Address;
+import com.vtech.cm.model.CollegeRepository;
+import com.vtech.cm.model.Course;
+import com.vtech.cm.model.Department;
+import com.vtech.cm.model.Student;
+
+public class StudentController {
+
+	public static void main(String[] args) {
+
+		System.out.println("Hello");
+		
+		CollegeRepository repo = new CollegeRepository();
+		
+		Address address1 = new Address(1, "Bengaluru", "Karnataka");
+		Department department1 = new Department(1, "CSE", null);
+		Course course1 = new Course(1, "Java Full Stack", null);
+		List<Course> list1 = new ArrayList<Course>();
+		list1.add(course1);
+		Student student = new Student(1, "Laxman", address1, department1, list1);
+		
+		repo.saveStudent(student);
+	}
+
+}

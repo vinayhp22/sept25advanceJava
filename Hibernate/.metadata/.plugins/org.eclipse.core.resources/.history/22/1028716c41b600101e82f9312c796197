@@ -1,0 +1,21 @@
+package com.vtech.vpm.repository;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.vtech.vpm.model.Parking;
+import com.vtech.vpm.util.DbUtil;
+
+public class ParkingRepository {
+
+	public void saveParking(Parking parking) {
+		Transaction tx = null;
+		try(Session session = DbUtil.getSessionFactory().openSession();){
+			tx = session.beginTransaction();
+			session.save(parking);
+			tx.commit();
+		}
+		
+
+	}
+}

@@ -1,0 +1,11 @@
+package com.vtech.vpm.repository;
+
+import com.vtech.vpm.model.Parking;
+
+public class ParkingRepository {
+
+	public void saveParking(Parking parking) {
+		
+
+	}
+}

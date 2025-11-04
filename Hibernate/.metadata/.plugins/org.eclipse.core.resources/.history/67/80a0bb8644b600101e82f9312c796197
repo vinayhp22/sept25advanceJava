@@ -1,0 +1,19 @@
+package com.vtech.vpm.controller;
+
+import java.time.LocalDateTime;
+
+import com.vtech.vpm.constants.Vehicle;
+import com.vtech.vpm.model.Parking;
+import com.vtech.vpm.repository.ParkingRepository;
+import com.vtech.vpm.util.DbUtil;
+
+public class ParkingController {
+
+	public static void main(String[] args) {
+		System.out.println(DbUtil.getSessionFactory().getAllClassMetadata().keySet());
+		ParkingRepository repo = new ParkingRepository();
+		
+		Parking bike1 = new Parking(Vehicle.BIKE, "KA-01-AA-8055", LocalDateTime.now(), null, 10);
+		repo.saveParking(bike1);
+	}
+}

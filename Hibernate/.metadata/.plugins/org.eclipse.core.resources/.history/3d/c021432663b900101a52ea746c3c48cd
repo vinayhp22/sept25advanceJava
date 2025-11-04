@@ -1,0 +1,22 @@
+package com.vtech.cm.util;
+
+import java.util.Properties;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.Environment;
+
+public class DBUtil {
+
+	private static SessionFactory sessionFactory;
+	
+	public static SessionFactory getSessionFactory() {
+		
+		Configuration configuration = new Configuration();
+		Properties settings = new Properties();
+		settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+		settings.put(Environment.URL, "jdbc:mysql://localhost:3306/collage_db");
+		
+		return sessionFactory;
+	}
+}

@@ -1,0 +1,23 @@
+package com.vtech.cm.model;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.vtech.cm.util.DBUtil;
+
+public class CollgeRepository {
+
+	public void saveStudent(Student student) {
+		Transaction tx = null;
+		try (Session session = DBUtil.getSessionFactory().openSession()) {
+			tx = session.beginTransaction();
+			session.save(student);
+			tx.commit();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			tx.roll
+		}
+		
+	}
+}

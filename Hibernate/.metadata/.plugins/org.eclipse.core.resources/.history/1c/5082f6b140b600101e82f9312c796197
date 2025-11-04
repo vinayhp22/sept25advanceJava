@@ -1,0 +1,5 @@
+package com.vtech.vpm.util;
+
+public class DbUtil {
+
+}

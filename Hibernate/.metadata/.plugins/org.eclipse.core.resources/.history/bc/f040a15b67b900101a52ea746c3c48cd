@@ -1,0 +1,16 @@
+package com.vtech.cm.controller;
+
+import com.vtech.cm.model.CollegeRepository;
+import com.vtech.cm.model.Student;
+
+public class StudentController {
+
+	public static void main(String[] args) {
+
+		System.out.println("Hello");
+		CollegeRepository repo = new CollegeRepository();
+		
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.vtech.vpm.model;
+
+import com.vtech.vpm.constants.Vehicle;
+
+public class Parking {
+
+	private int id;
+	private Vehicle vehicle;
+	private String registerNumber;
+	private double hours;
+	private double fee;
+}

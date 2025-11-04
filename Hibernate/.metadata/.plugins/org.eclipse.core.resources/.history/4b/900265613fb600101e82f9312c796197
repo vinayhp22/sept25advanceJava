@@ -1,0 +1,19 @@
+package com.vtech.vpm.model;
+
+import java.time.LocalDateTime;
+import com.vtech.vpm.constants.Vehicle;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "parking")
+public class Parking {
+
+	private int id;
+	private Vehicle vehicle;
+	private String registerNumber;
+	private LocalDateTime intime;
+	private LocalDateTime outtime;	
+	private double feePerHour;
+}

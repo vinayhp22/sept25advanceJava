@@ -1,0 +1,10 @@
+package com.vtech.cm.model;
+
+import java.util.List;
+
+public class Department {
+
+	private int id;
+	
+	private List<Student> students;
+}

@@ -1,0 +1,7 @@
+package com.vtech.vpm.model;
+
+public class Parking {
+
+	private int id;
+	private 
+}

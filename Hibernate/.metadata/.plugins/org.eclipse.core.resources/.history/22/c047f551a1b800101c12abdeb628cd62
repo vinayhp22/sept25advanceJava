@@ -1,0 +1,5 @@
+package com.vtech.cm.model;
+
+public class Course {
+
+}

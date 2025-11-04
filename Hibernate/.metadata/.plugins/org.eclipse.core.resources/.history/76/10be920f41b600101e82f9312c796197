@@ -1,0 +1,5 @@
+package com.vtech.vpm.repository;
+
+public class ParkingRepository {
+
+}
