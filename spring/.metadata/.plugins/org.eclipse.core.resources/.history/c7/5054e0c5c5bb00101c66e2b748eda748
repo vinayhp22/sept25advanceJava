@@ -1,0 +1,11 @@
+package com.vtech.iocdi.model;
+
+public class Seats {
+
+	private int seats;
+
+	@Override
+	public String toString() {
+		return "Seats [seats=" + seats + "]";
+	}
+}

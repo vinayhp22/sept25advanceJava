@@ -1,0 +1,6 @@
+package com.vtech.iocdemo;
+
+public class Car {
+
+	private Engine engine;
+}

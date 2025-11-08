@@ -1,0 +1,5 @@
+package com.vtech.iocdi.config;
+
+public class AppConfig {
+
+}

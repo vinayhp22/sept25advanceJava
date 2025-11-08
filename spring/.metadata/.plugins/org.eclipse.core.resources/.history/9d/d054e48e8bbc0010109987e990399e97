@@ -1,0 +1,19 @@
+package com.vtech.shdemo.dto;
+
+import com.vtech.shdemo.dao.StudentDAO;
+import com.vtech.shdemo.entity.Student;
+
+public class StudentDTOImpl implements StudentDTO {
+
+	private StudentDAO dao;
+	
+	public void setStudentDAO(StudentDAO dao) {
+		this.dao = dao;
+	}
+	
+	@Override
+	public void addStudent(Student student) {
+		this.dao.saveStudent(student);
+	}
+
+}

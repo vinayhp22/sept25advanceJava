@@ -1,0 +1,9 @@
+package com.vtech.iocdi.model;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Engine {
+
+	private String type;
+}

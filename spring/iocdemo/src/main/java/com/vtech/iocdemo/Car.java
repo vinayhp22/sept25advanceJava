@@ -1,0 +1,30 @@
+package com.vtech.iocdemo;
+
+public class Car {
+
+	private Engine engine;
+
+	public Car() {}
+
+	//Constructor Injection
+	public Car(Engine engine) {
+		super();
+		this.engine = engine;
+		System.out.println("Car created using constructor");
+	}
+
+	public Engine getEngine() {
+		return engine;
+	}
+
+	//Setter Injection
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+		System.out.println("Car Created using setter");
+	}
+	
+	@Override
+	public String toString() {
+		return "Car [engine=" + engine + "]";
+	}
+}

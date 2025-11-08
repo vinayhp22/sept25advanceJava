@@ -1,0 +1,26 @@
+package com.vtech.iocdi.model;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.vtech.iocdi.config.AppConfig;
+
+public class MainApp {
+
+	private static Car car1;
+	
+	public static void main(String[] args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		Car car = context.getBean(Car.class);
+		Engine engine = car.getEngine();
+		Fuel fuel = car.getFuel();
+		Seats seats = car.getSeats();
+		System.out.println(car.toString());
+		System.out.println(engine.toString());
+		System.out.println(fuel.toString());
+		System.out.println(seats.toString());
+		
+		Engine engine1 = car1.getEngine(); 
+		
+	}
+}

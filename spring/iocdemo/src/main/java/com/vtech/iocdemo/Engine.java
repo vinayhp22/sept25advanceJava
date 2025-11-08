@@ -1,0 +1,28 @@
+package com.vtech.iocdemo;
+
+public class Engine {
+
+	private String type;
+
+	public Engine() {}
+	public Engine(String type) {
+		this.type = type;
+		System.out.println("Engine created using constructor");
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+		System.out.println("Engine created using setter");
+	}
+
+	@Override
+	public String toString() {
+		return "Engine [type=" + type + "]";
+	}
+	
+	
+}

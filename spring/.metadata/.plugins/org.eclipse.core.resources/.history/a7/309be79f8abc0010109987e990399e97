@@ -1,0 +1,19 @@
+package com.vtech.shdemo.dao;
+
+import org.hibernate.SessionFactory;
+
+import com.vtech.shdemo.entity.Student;
+
+public class StudentDAOImpl implements StudentDAO{
+
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+	
+	@Override
+	public void saveStudent(Student student) {
+		
+	}
+}

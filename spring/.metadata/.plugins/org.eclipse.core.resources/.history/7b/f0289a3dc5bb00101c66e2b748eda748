@@ -1,0 +1,36 @@
+package com.vtech.iocdi.model;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Car {
+
+	@Autowired
+	private Engine engine;
+	
+	private Fuel fuel;
+	private Seats seats;
+
+    @Autowired	
+	public Car(Fuel fuel) {
+		super();
+		this.fuel = fuel;
+	}
+
+	public Seats getSeats() {
+		return seats;
+	}
+
+    @Autowired
+	public void setSeats(Seats seats) {
+		this.seats = seats;
+	}
+
+
+	private void start() {
+		System.out.println("Car started...");
+	}
+	
+	
+}

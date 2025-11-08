@@ -1,0 +1,5 @@
+package com.vtech.shdemo.dto;
+
+public interface StudentDTO {
+
+}

@@ -1,0 +1,6 @@
+package com.vtech.iocdi.model;
+
+public class Engine {
+
+	private String type;
+}

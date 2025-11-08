@@ -1,0 +1,12 @@
+package com.vtech.iocdemo;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+		Engine engine = new Engine("Petrol");
+		Car car = new Car(engine);
+		
+		car.toString();
+		
+	}
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+    <hibernate-configuration>
+    	<session-factory>
+    		<!-- Database Connection -->
+    		<property name="org.hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    		<property name="org.hibernate.connection.url">jdbc:mysql://localhost:3306/test_tb</property>
+    		<property name="org.hibernate.connection.username">root</property>
+    		<property name="org.hibernate.connection.password">root</property>
+    		
+    		<!-- Dialect -->
+		    <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+    		
+ 			<property name="hibernate.show_sql">true</property>
+ 			<property name="hibernate.format_sql">true</property>
+ 			<property name="hibernate.hbm2ddl.auto">update</property>
+    		
+    	</session-factory>
+    </hibernate-configuration>

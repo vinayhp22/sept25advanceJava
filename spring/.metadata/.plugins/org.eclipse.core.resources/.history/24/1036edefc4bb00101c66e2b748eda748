@@ -1,0 +1,23 @@
+package com.vtech.iocdi.model;
+
+import com.vtech.iocdi.config.AppConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Car {
+
+    private final AppConfig appConfig;
+
+	@Autowired
+	private Engine engine;
+	
+	
+
+    	
+	private void start() {
+		System.out.println("Car started...");
+	}
+	
+	
+}
