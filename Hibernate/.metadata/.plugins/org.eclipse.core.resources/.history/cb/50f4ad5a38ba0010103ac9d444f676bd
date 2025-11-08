@@ -1,0 +1,37 @@
+package com.vtech.bank.config;
+
+import java.util.HashMap;
+import org.hibernate.jpa.HibernatePersistenceProvider;
+import jakarta.persistence.EntityManagerFactory;
+
+public class JpaConfig {
+
+	private static EntityManagerFactory emf;
+
+	static {
+		try {
+			HashMap<String, Object> props = new HashMap<>();
+
+			// Database Connection
+			props.put("jakarta.persistence.jdbc.driver", "com.mysql.cj.jdbc.Driver");
+			props.put("jakarta.persistence.jdbc.url", "jdbc:mysql://localhost:3306/bank_db");
+			props.put("jakarta.persistence.jdbc.user", "root");
+			props.put("jakarta.persistence.jdbc.password", "root");
+
+			// Hibernate Properties
+			props.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+			props.put("hibernate.hbm2ddl.auto", "update");
+			props.put("hibernate.show_sql", "true");
+			props.put("hibernate.format_sql", "true");
+
+			// Create EntityManagerFactory
+			emf = new HibernatePersistenceProvider().createEntityManagerFactory("MyUnit", props);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static EntityManagerFactory getEntityManagerFactory() {
+		return emf;
+	}
+}

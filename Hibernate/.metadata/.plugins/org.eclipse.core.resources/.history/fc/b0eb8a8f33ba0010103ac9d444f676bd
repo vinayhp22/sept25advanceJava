@@ -1,0 +1,14 @@
+package com.vtech.bank.dao;
+
+import com.vtech.bank.config.JpaConfig;
+import com.vtech.bank.model.BankAccount;
+
+import jakarta.persistence.EntityManager;
+
+public class BankAccountDAO {
+
+	//CREATE
+	public void save(BankAccount account) {
+		EntityManager entityManager = JpaConfig.getEntityManagerFactory().createEntityManager();
+	}
+}

@@ -12,11 +12,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "department")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Department {
 
 	@Id

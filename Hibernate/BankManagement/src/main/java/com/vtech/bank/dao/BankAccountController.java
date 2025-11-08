@@ -1,0 +1,14 @@
+package com.vtech.bank.dao;
+
+import com.vtech.bank.model.BankAccount;
+
+public class BankAccountController {
+
+	public static void main(String[] args) {
+		BankAccount varun = new BankAccount("Varun", 5000);
+		BankAccount praveen = new BankAccount("Praveen", 5000);
+		BankAccount zaheer = new BankAccount("Zaheer", 5000);
+		BankAccountDAO dao = new BankAccountDAO();
+		dao.save(zaheer);
+	}
+}

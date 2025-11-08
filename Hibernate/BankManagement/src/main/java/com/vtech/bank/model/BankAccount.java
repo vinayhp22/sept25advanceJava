@@ -1,0 +1,36 @@
+package com.vtech.bank.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "bank_account")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class BankAccount {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name = "customer_name")
+	private String name;
+	
+	@Column(name = "account_balance")
+	private double balance;
+	
+	public BankAccount(String name, double balance){
+		this.name = name;
+		this.balance = balance;
+	}
+	
+	
+}

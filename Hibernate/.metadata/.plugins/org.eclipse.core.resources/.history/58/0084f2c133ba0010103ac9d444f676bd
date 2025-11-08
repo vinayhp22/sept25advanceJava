@@ -1,0 +1,25 @@
+package com.vtech.bank.dao;
+
+import com.vtech.bank.config.JpaConfig;
+import com.vtech.bank.model.BankAccount;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+
+public class BankAccountDAO {
+
+	//CREATE
+	public void save(BankAccount account) {
+		EntityManager em = JpaConfig.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		try {
+			tx.begin();
+			em.persist(account);
+			System.out.println("Account saved successfully:"+account.toString());
+		} catch (Exception e) {
+			if(tx.isActive()) tx.rollback();
+			e.printStackTrace();
+		}
+		
+	}
+}

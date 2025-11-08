@@ -1,0 +1,5 @@
+package com.vtech.bank.config;
+
+public class JpaConfig {
+
+}

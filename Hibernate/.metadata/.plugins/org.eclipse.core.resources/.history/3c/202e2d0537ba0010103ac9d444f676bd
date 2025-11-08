@@ -1,0 +1,29 @@
+package com.vtech.bank.config;
+
+import java.util.HashMap;
+import org.hibernate.jpa.HibernatePersistenceProvider;
+import jakarta.persistence.EntityManagerFactory;
+
+public class JpaConfig {
+
+	private static EntityManagerFactory emf;
+
+
+	public static EntityManagerFactory getEntityManagerFactory() {
+		if (emf == null) {
+			try {
+				HashMap<String, Object> props = new HashMap<>();
+
+				
+
+				// Create EntityManagerFactory
+				emf = new HibernatePersistenceProvider().createEntityManagerFactory("myJpaUnit", props);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("EMF is null");
+		}
+		return emf;
+	}
+}

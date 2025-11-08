@@ -1,0 +1,144 @@
+package com.vtech.bank.config;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.hibernate.jpa.HibernatePersistenceProvider;
+
+import com.vtech.bank.model.BankAccount;
+
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.SharedCacheMode;
+import jakarta.persistence.ValidationMode;
+import jakarta.persistence.spi.ClassTransformer;
+import jakarta.persistence.spi.PersistenceUnitInfo;
+import jakarta.persistence.spi.PersistenceUnitTransactionType;
+
+public class JpaConfig {
+
+	private static EntityManagerFactory emf;
+	
+	static {
+		HashMap<String, Object> props = new HashMap<>();
+		
+		//Database Connection
+		props.put("jakarta.persistance.jdbc.driver", "com.mysql.cj.jdbc.Driver");
+		props.put("jakarta.persistance.jdbc.url", "jdbc:mysql://localhost:3306/bank_db");
+		props.put("jakarta.persistance.jdbc.user", "root");
+		props.put("jakarta.persistance.jdbc.password", "root");
+		
+		//Hibernate Properties
+		props.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		props.put("hibernate.hbm2ddl.auto", "update");
+		props.put("hibernate.show_sql", "true");
+		props.put("hibernate.format_sql", "true");
+		
+		//Create EntityManagerFactory
+		new HibernatePersistenceProvider()
+		.createContainerEntityManagerFactory(new PersistenceUnitInfo() {
+
+			@Override
+			public String getPersistenceUnitName() {
+				return "myJpaUnit";
+			}
+
+			@Override
+			public String getPersistenceProviderClassName() {
+				return HibernatePersistenceProvider.class.getName();
+			}
+			@Override
+			public boolean excludeUnlistedClasses() {
+				return false;
+			}
+			@Override
+			public List<String> getManagedClassNames() {
+				return List.of(BankAccount.class.getName());
+			}
+			
+			
+
+			@Override
+			public DataSource getJtaDataSource() {
+				return null;
+			}
+
+			@Override
+			public DataSource getNonJtaDataSource() {
+				return null;
+			}
+
+			@Override
+			public List<String> getMappingFileNames() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public List<URL> getJarFileUrls() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public URL getPersistenceUnitRootUrl() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			
+
+			
+
+			@Override
+			public SharedCacheMode getSharedCacheMode() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public ValidationMode getValidationMode() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public Properties getProperties() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String getPersistenceXMLSchemaVersion() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public ClassLoader getClassLoader() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public void addTransformer(ClassTransformer transformer) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public ClassLoader getNewTempClassLoader() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			@Override
+			public PersistenceUnitTransactionType getTransactionType() {
+				return PersistenceUnitTransactionType.RESOURCE_LOCAL;
+			}
+		}, props)
+		
+	}
+}

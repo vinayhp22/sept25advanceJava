@@ -1,0 +1,12 @@
+package com.vtech.bank.config;
+
+import jakarta.persistence.EntityManagerFactory;
+
+public class JpaConfig {
+
+	private static EntityManagerFactory emf;
+	
+	static {
+		
+	}
+}

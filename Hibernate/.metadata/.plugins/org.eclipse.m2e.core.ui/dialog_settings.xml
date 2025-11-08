@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="com.vtech.bank"/>
 			<item value="com.vtech.cm"/>
 			<item value="com.vtech.vpm"/>
 			<item value="com.vtech.bus.ticketbooking"/>
@@ -9,6 +10,7 @@
 			<item value="com.vtech.ems"/>
 		</list>
 		<list key="name">
+			<item value="BankManagement"/>
 			<item value="CollegeManagement"/>
 			<item value="VehicleParkingManagement"/>
 			<item value="BusTicketBooking"/>
@@ -16,6 +18,7 @@
 			<item value="EmployeeManagementSystem"/>
 		</list>
 		<list key="artifactId">
+			<item value="bank"/>
 			<item value="cm"/>
 			<item value="vpm"/>
 			<item value="ticketbooking"/>

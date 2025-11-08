@@ -26,7 +26,7 @@ public class StudentController {
 		List<Course> list1 = new ArrayList<Course>();
 		list1.add(course1);
 		
-		Student student = new Student(1, "Ram", address1, department1, list1);
+		Student student = new Student(2, "Charan", null, null, null);
 		
 		repo.saveStudent(student);
 	}
