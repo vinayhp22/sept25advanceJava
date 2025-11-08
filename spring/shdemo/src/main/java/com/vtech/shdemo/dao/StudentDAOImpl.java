@@ -1,0 +1,26 @@
+package com.vtech.shdemo.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.vtech.shdemo.entity.Student;
+
+public class StudentDAOImpl implements StudentDAO{
+
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+	
+	private Session getSession() {
+		return sessionFactory.getCurrentSession();
+	}
+	
+	@Override
+	@Transactional
+	public void saveStudent(Student student) {
+		getSession().save(student);
+	}
+}

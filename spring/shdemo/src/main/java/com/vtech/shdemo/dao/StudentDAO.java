@@ -1,0 +1,8 @@
+package com.vtech.shdemo.dao;
+
+import com.vtech.shdemo.entity.Student;
+
+public interface StudentDAO {
+
+	void saveStudent(Student student);
+}
