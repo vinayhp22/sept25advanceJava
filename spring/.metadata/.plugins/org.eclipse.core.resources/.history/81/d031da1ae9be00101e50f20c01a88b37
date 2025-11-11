@@ -1,0 +1,5 @@
+package com.vtech.springhibernatedemo.repo;
+
+public interface StudentRepo {
+
+}

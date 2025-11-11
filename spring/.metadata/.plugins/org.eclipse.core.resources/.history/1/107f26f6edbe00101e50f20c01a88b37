@@ -1,0 +1,19 @@
+package com.vtech.springhibernatedemo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.vtech.springhibernatedemo.entity.Student;
+import com.vtech.springhibernatedemo.service.StudentService;
+
+public class Runner {
+
+	@Autowired
+	private static StudentService service;
+	
+	public static void main(String[] args) {
+		
+		
+		Student student = new Student("Rajesh", "rajesh@gmail.com", 45);
+		s
+	}
+}

@@ -1,0 +1,76 @@
+package com.vtech.shdemo.dto;
+
+import java.util.List;
+import java.util.regex.Pattern;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.vtech.shdemo.dao.StudentDAO;
+import com.vtech.shdemo.entity.Student;
+import com.vtech.shdemo.exceptions.InvalidStudentDataException;
+
+public class StudentDTOImpl implements StudentDTO {
+
+	private StudentDAO studentDAO;
+	
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
+	}
+	
+	@Override
+	public void addStudent(Student student) {
+		validate(student);
+		this.studentDAO.saveStudent(student);
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		if(id<=0) {
+			throw new InvalidStudentDataException("Id is less than zero, can't able to get the student data!!!");
+		}
+		return this.studentDAO.getStudent(id);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return this.studentDAO.getAllStudents();
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+		this.updateStudent(student);
+	}
+
+	@Override
+	public void deleteStudent(int id) {
+		this.studentDAO.deleteStudent(id);
+	}
+	
+//	Validation Logic
+	private void validate(Student student) {
+		if(student == null) {
+			throw new InvalidStudentDataException("Student Object is null");
+		} 
+		
+//		Validate Name
+		if(student.getName()== null || student.getName().trim().length()<=3) {
+			throw new InvalidStudentDataException("Student name is less than 3 characters");
+		}
+//		Validate Email
+		if(student.getEmail()==null || student.getEmail().isEmpty()) {
+			throw new InvalidStudentDataException("Student email should not be empty or null");
+		}
+		String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\r\n";
+		if(!Pattern.matches(emailRegex, student.getEmail())) {
+			throw new InvalidStudentDataException("Invalid Email formate, Email: "+student.getEmail());
+		}
+		
+//		Validate Age
+		if(student.getAge()<18 || student.getAge()>60) {
+			throw new InvalidStudentDataException("Age should be between 18 and 60");
+		}
+	}
+
+
+
+}

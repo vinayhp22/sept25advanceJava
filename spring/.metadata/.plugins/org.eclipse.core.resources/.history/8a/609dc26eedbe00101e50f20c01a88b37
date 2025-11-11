@@ -1,0 +1,42 @@
+package com.vtech.springhibernatedemo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.vtech.springhibernatedemo.entity.Student;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+
+	@Override
+	public int saveStudent(Student student) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updateStudent(Student student) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteUpdate(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

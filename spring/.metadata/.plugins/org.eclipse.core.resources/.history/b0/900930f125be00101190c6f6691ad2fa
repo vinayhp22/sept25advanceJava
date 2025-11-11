@@ -1,0 +1,49 @@
+package com.vtech.shdemo.dto;
+
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.vtech.shdemo.dao.StudentDAO;
+import com.vtech.shdemo.entity.Student;
+
+public class StudentDTOImpl implements StudentDTO {
+
+	private StudentDAO studentDAO;
+	
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
+	}
+	
+	@Override
+	public void addStudent(Student student) {
+		this.studentDAO.saveStudent(student);
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		return this.studentDAO.getStudent(id);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return this.studentDAO.getAllStudents();
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+		this.updateStudent(student);
+	}
+
+	@Override
+	public void deleteStudent(int id) {
+		this.studentDAO.deleteStudent(id);
+	}
+	
+	private void validate(Student student) {
+		
+	}
+
+
+
+}

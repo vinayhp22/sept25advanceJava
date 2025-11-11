@@ -1,0 +1,12 @@
+package com.vtech.springhibernatedemo;
+
+import com.vtech.springhibernatedemo.service.StudentService;
+
+public class Runner {
+
+	private StudentService service;
+	
+	public static void main(String[] args) {
+		
+	}
+}

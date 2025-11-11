@@ -1,0 +1,20 @@
+package com.vtech.springhibernatedemo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.vtech.springhibernatedemo.entity.Student;
+import com.vtech.springhibernatedemo.service.StudentService;
+
+public class Runner {
+	
+	public static void main(String[] args) {
+		
+		Student student = new Student("Rajesh", "rajesh@gmail.com", 45);
+		int rows = service.saveStudent(student);
+		if(rows>0) {
+			System.out.println("Added Successfully!!");
+		}else {
+			System.out.println("Error occured during adding...");
+		}
+	}
+}

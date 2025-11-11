@@ -1,0 +1,15 @@
+package com.vtech.springhibernatedemo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.vtech.springhibernatedemo.service.StudentService;
+
+public class Runner {
+
+	@Autowired
+	private StudentService service;
+	
+	public static void main(String[] args) {
+		
+	}
+}

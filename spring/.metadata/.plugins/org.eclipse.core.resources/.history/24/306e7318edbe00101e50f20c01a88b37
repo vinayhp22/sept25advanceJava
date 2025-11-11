@@ -1,0 +1,50 @@
+package com.vtech.springhibernatedemo.repo;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.vtech.springhibernatedemo.entity.Student;
+
+@Repository
+public class StudentRepoImpl implements StudentRepo {
+
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public Session getSessionFactory() {
+		return sessionFactory.getCurrentSession();
+	}
+	
+	@Override
+	public int saveStudent(Student student) {
+		sessionFactory.save(student);
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updateStudent(Student student) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteUpdate(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

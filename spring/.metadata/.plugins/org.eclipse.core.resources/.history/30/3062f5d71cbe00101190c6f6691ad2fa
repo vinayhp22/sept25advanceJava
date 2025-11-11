@@ -1,0 +1,36 @@
+package com.vtech.shdemo;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.vtech.shdemo.dto.StudentDTO;
+import com.vtech.shdemo.entity.Student;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		StudentDTO dto = (StudentDTO)context.getBean("studentDTO");
+		
+		//Create
+//		Student student = new Student("Praveen", "praveen@gmail.com", 25);
+//		dto.addStudent(student);
+		
+		//Read by ID
+//		Student studentById = dto.getStudent(2);
+//		System.out.println(studentById.toString());
+		
+		//Read all Students
+//		List<Student> allStudents = dto.getAllStudents();
+//		allStudents.forEach(e->System.out.println(e.toString()));
+		
+		//Update Student
+		Student studentByid2 = dto.getStudent(2);
+		studentByid2.setEmail("zaheer@zohomail.in");
+		dto.updateStudent(studentByid2);
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.vtech.springhibernatedemo.service;
+
+public class StudentServiceImpl {
+
+}

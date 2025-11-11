@@ -12,10 +12,10 @@ public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String email;
-	private int age;
+	private int id;  //> 0 
+	private String name; //not null, not empty or min character - 3, whether its only alphabets
+	private String email; //@domain.com
+	private int age; // > 0
 	
 	public Student() {}
 

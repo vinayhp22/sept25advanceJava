@@ -1,8 +1,8 @@
 package com.vtech.shdemo;
 
+import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.vtech.shdemo.dto.StudentDTO;
 import com.vtech.shdemo.entity.Student;
 
@@ -13,7 +13,30 @@ public class MainApp {
 		
 		StudentDTO dto = (StudentDTO)context.getBean("studentDTO");
 		
-		Student student = new Student("Varun", "varun@gmail.com", 25);
+		//Create
+		Student student = new Student("Manoj Kumar", "manoj@gmail.ac.in", -5);
 		dto.addStudent(student);
+		System.out.println("Saved successfully");
+		
+		//Read by ID
+//		Student studentById = dto.getStudent(-1);
+//		System.out.println("Student fetched: "+dto.getStudent(1).toString());
+		
+		
+		//Read all Students
+//		List<Student> allStudents = dto.getAllStudents();
+//		allStudents.forEach(e->System.out.println(e.toString()));
+		
+		//Update Student
+//		Student studentByid2 = dto.getStudent(7);
+//		studentByid2.setEmail("");
+//		dto.updateStudent(studentByid2);
+//		System.out.println("Updated Successfully");
+		
+		//Delete Student
+//		dto.deleteStudent(100);
+//		System.out.println("Deleted Successfully");
+		
+
 	}
 }

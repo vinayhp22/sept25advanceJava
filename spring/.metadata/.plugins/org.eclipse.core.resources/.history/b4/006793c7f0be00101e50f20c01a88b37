@@ -1,0 +1,43 @@
+package com.vtech.springhibernatedemo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.vtech.springhibernatedemo.entity.Student;
+import com.vtech.springhibernatedemo.repo.StudentRepo;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+
+	@Autowired
+	private StudentRepo repo;
+	
+	@Override
+	public int saveStudent(Student student) {
+		int rows = repo.saveStudent(student);
+		return rows;
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		return repo.getStudent(id);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return repo.getAllStudents();
+	}
+
+	@Override
+	public int updateStudent(Student student) {
+		return repo.updateStudent(student);
+	}
+
+	@Override
+	public int deleteUpdate(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

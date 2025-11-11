@@ -1,5 +1,7 @@
 package com.vtech.shdemo.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,4 +25,31 @@ public class StudentDAOImpl implements StudentDAO{
 	public void saveStudent(Student student) {
 		getSession().save(student);
 	}
+
+	@Override
+	@Transactional
+	public Student getStudent(int id) {
+		return getSession().get(Student.class, id);
+	}
+
+	@Override
+	@Transactional
+	public List<Student> getAllStudents() {
+		return getSession().createQuery("from Student", Student.class).list();
+	}
+
+	@Override
+	@Transactional
+	public void updateStudent(Student student) {
+		getSession().update(student);
+	}
+
+	@Override
+	@Transactional
+	public void deleteStudent(int id) {
+		if(getStudent(id) != null)
+		getSession().delete(getStudent(id));
+	}
+
+
 }

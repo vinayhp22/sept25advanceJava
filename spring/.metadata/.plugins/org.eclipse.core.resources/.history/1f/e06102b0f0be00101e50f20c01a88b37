@@ -1,0 +1,18 @@
+package com.vtech.springhibernatedemo.repo;
+
+import java.util.List;
+
+import com.vtech.springhibernatedemo.entity.Student;
+
+public interface StudentRepo {
+
+	int saveStudent(Student student);
+	
+	Student getStudent(int id);
+	
+	List<Student> getAllStudents();
+	
+	int updateStudent(Student student);
+	
+	int deleteUpdate(int id);
+}
