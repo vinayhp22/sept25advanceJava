@@ -17,20 +17,20 @@ public class Runner {
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		StudentService service = context.getBean(StudentService.class);
 		
-//		Student student = new Student("Rajesh", "rajesh@gmail.com", 45);
-//		int rows = service.saveStudent(student);
-//		if(rows>0) {
-//			System.out.println("Added Successfully!!");
-//		}else {
-//			System.out.println("Error occured during adding...");
-//		}
-		
-		Student studentById = service.getStudent(9);
-		if(studentById==null) {
-			System.out.println("No data found!!!");
-		} else {
-			System.out.println(studentById.toString());
+		Student student = new Student(null, "rajesh@gmail.com", 10);
+		int rows = service.saveStudent(student);
+		if(rows>0) {
+			System.out.println("Added Successfully!!");
+		}else {
+			System.out.println("Error occured during adding...");
 		}
+		
+//		Student studentById = service.getStudent(9);
+//		if(studentById==null) {
+//			System.out.println("No data found!!!");
+//		} else {
+//			System.out.println(studentById.toString());
+//		}
 //		
 //		List<Student> allStudents = service.getAllStudents();
 //		if(allStudents.isEmpty()) {

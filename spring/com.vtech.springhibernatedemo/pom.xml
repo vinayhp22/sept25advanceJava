@@ -26,6 +26,23 @@
         <artifactId>hibernate-core</artifactId>
         <version>6.4.4.Final</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+	<dependency>
+	    <groupId>org.hibernate.validator</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>8.0.1.Final</version>
+	</dependency>
+	
+	<dependency>
+        <groupId>jakarta.el</groupId>
+        <artifactId>jakarta.el-api</artifactId>
+        <version>4.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>jakarta.el</artifactId>
+        <version>4.0.2</version>
+    </dependency>
 
     <!-- Jakarta Persistence API (required by Hibernate 6 and Spring 6) -->
     <dependency>
@@ -33,6 +50,12 @@
         <artifactId>jakarta.persistence-api</artifactId>
         <version>3.1.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+	<dependency>
+	    <groupId>jakarta.validation</groupId>
+	    <artifactId>jakarta.validation-api</artifactId>
+	    <version>3.1.0</version>
+	</dependency>
 
     <!-- MySQL Driver -->
     <dependency>

@@ -12,6 +12,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+import jakarta.validation.Validator;
 
 @Configuration
 @ComponentScan(basePackages = "com.vtech.springhibernatedemo")
@@ -46,5 +49,10 @@ public class AppConfig {
 	@Bean
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
 		return new HibernateTransactionManager(sessionFactory);
+	}
+	
+	@Bean
+	public Validator validator() {
+		return new LocalValidatorFactoryBean();
 	}
 }
