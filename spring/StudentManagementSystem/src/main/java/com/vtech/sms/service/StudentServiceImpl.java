@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vtech.sms.enitity.Student;
+import com.vtech.sms.entity.Student;
 import com.vtech.sms.repository.StudentRepository;
 
 @Service

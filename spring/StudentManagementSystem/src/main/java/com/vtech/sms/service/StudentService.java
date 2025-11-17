@@ -2,7 +2,7 @@ package com.vtech.sms.service;
 
 import java.util.List;
 
-import com.vtech.sms.enitity.Student;
+import com.vtech.sms.entity.Student;
 
 public interface StudentService {
 

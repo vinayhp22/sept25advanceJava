@@ -12,6 +12,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import com.vtech.sms.entity.Student;
+
 import jakarta.validation.Validator;
 
 @Configuration
@@ -33,7 +35,7 @@ public class AppConfig {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
 		factory.setDataSource(dataSource());
-		factory.setAnnotatedPackages("com.vtech.sms.entity");
+		factory.setAnnotatedClasses(Student.class);
 		
 		Properties props = new Properties();
 		props.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");

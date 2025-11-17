@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.vtech.sms.enitity.Student;
+import com.vtech.sms.entity.Student;
 
 @Repository
 @Transactional
