@@ -6,11 +6,11 @@ import com.vtech.sms.entity.Student;
 
 public interface StudentService {
 
-void saveStudent(Student student);
+	String saveStudent(Student student);
 	
 	Student getStudent(int id);
 	
-	void updateStudent(Student student);
+	String updateStudent(Student student);
 	
 	List<Student> getAllStudents();
 	

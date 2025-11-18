@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import com.vtech.sms.config.AppConfig;
 import com.vtech.sms.entity.Student;
 import com.vtech.sms.service.StudentService;
 
@@ -18,8 +18,14 @@ import com.vtech.sms.service.StudentService;
 @RequestMapping("/students")
 public class StudentController {
 
+    private final AppConfig appConfig;
+
 	@Autowired
 	private StudentService service;
+
+    StudentController(AppConfig appConfig) {
+        this.appConfig = appConfig;
+    }
 	
 	@GetMapping("/list")
 	public String listStudents(Model model) {
@@ -29,13 +35,27 @@ public class StudentController {
 	}
 	
 	@PostMapping("/saveStudent")
-	public String saveStudent(@ModelAttribute("student") Student student) {
+	public String saveStudent(@ModelAttribute("student") Student student, Model model) {
+		System.out.println(student.toString());
 		if(student.getId() == 0) {
-			service.saveStudent(student);
+			String violations = service.saveStudent(student);
+			if(violations == null) {
+				return "redirect:/students/list";
+			} else {
+				model.addAttribute("student", student);
+				model.addAttribute("errors", violations);
+				return "student-form";
+			}
 		} else {
-			service.updateStudent(student);
+			String violations = service.updateStudent(student);
+			if(violations == null) {
+				return "redirect:/students/list";
+			} else {
+				model.addAttribute("student", student);
+				model.addAttribute("errors", violations);
+				return "student-form";
+			}
 		}
-		return "redirect:/students/list";
 	}
 	
 	@GetMapping("/showForm")

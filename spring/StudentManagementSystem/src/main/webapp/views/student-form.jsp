@@ -60,7 +60,7 @@
         margin-bottom: 5px;
     }
 
-    .form-group input {
+    .form-group input, .form-group select {
         width: 100%;
         padding: 10px;
         border: 1px solid #ccc;
@@ -93,6 +93,10 @@
         Student Management System
     </div>
 
+	<div>
+		<p style="color:red;">${errors}</p>
+	</div>
+	
     <!-- Form Card -->
     <div class="form-container">
         <h2>
@@ -110,7 +114,7 @@
 
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" name="name" value="${student.name}" required>
+                <input type="text" name="name" value="${student.name}"  >
             </div>
 
             <div class="form-group">
@@ -120,7 +124,14 @@
 
             <div class="form-group">
                 <label>Course</label>
-                <input type="text" name="course" value="${student.course}" required>
+                <select name="course" required>
+                	<option value="">Select the course</option>
+                	<option value="JAVA_FULL_STACK" ${student.course == 'JAVA_FULL_STACK' ? 'selected' : '' }>Java Full Stack</option>
+                	<option value="PYTHON_FULL_STACK" ${student.course == 'PYTHON_FULL_STACK' ? 'selected' : '' }>Python Full Stack</option>
+                	<option value="DATA_ANALYTICS" ${student.course == 'DATA_ANALYTICS' ? 'selected' : '' }>Data Analytics</option>
+                	<option value="DATA_SCIENCE" ${student.course == 'DATA_SCIENCE' ? 'selected' : '' }>Data Science</option>
+                	<option value="AI_ML" ${student.course == 'AI_ML' ? 'selected' : '' }>AI ML</option>
+                </select>
             </div>
 
             <button class="btn-submit" type="submit">Submit</button>

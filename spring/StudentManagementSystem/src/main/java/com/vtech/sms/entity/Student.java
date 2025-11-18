@@ -1,10 +1,18 @@
 package com.vtech.sms.entity;
 
+import com.vtech.sms.constants.Course;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -14,14 +22,21 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@NotNull(message = "Name should not be null")
+	@NotBlank(message = "Name should not be blank")
 	private String name;
+	
+	@Min(value = 6000000000L, message = "Invalid Mobile Number!! Mobile number should be 10 digits")
+	@Max(value = 9999999999L, message = "Invalid Mobile Number!! Mobile number should be 10 digits")
 	private long mobile;
-	private String course;
+	@Enumerated(EnumType.STRING)
+	private Course course;
 	
 	public Student() {
 	}
 	
-	public Student(String name, long mobile, String course) {
+	public Student(String name, long mobile, Course course) {
 		this.name = name;
 		this.mobile = mobile;
 		this.course = course;
@@ -56,11 +71,11 @@ public class Student {
 		this.mobile = mobile;
 	}
 
-	public String getCourse() {
+	public Course getCourse() {
 		return course;
 	}
 
-	public void setCourse(String course) {
+	public void setCourse(Course course) {
 		this.course = course;
 	}
 	
