@@ -1,0 +1,52 @@
+package com.vtech.student.mngtsys.service;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vtech.student.mngtsys.dao.StudentDAO;
+import com.vtech.student.mngtsys.entity.Student;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+
+	@Autowired
+	private StudentDAO dao;
+	
+	@Override
+	public List<Student> getAllStudents() {
+		List<Student> list = dao.findAll();
+		return list;
+	}
+
+	@Override
+	public Student getStudentById(Long id) {
+		Student student = dao.findById(id).orElse(null);
+		return student;
+	}
+
+	@Override
+	public Student saveStudent(Student student) {
+		Student savedStudent = dao.save(student);
+		return savedStudent;
+	}
+
+	@Override
+	public Student updateStudent(Student student) {
+		Student existing = getStudentById(student.getId());
+		if(existing != null) {
+			existing.setName(student.getName());
+			existing.setAge(student.getAge());
+			existing.setCource(student.getCource());
+			Student updatedStudent = dao.save(existing);
+			return updatedStudent;
+		}
+		return null;
+	}
+
+	@Override
+	public void deleteStudent(Long id) {
+		dao.deleteById(id);
+	}
+
+}

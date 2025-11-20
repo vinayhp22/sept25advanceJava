@@ -1,0 +1,53 @@
+package com.vtech.sms.repository;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.vtech.sms.enitity.Student;
+
+@Repository
+@Transactional
+public class StudentRepositoryImpl implements StudentRepository{
+
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public Session getSessionFactory() {
+		return sessionFactory.getCurrentSession();
+	}
+	
+	@Override
+	public void saveStudent(Student student) {
+		getSessionFactory().save(student);
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		Student student = getSessionFactory().get(Student.class, id);
+		return student;
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+		getSessionFactory().update(student);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return getSessionFactory().createQuery("from Student", Student.class).list();
+		
+	}
+
+	@Override
+	public void deleteStudent(int id) {
+
+		
+	}
+
+	
+}

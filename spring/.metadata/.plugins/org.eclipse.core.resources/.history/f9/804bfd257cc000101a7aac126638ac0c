@@ -1,0 +1,5 @@
+package com.vtech.sms.repository;
+
+public class StudentRepositoryImpl {
+
+}

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Vtech\spring\shdemo\src\main\resources\applicationContext.xml"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -43,18 +44,21 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="springhibernatedemo"/>
 			<item value="com.vtech.shdemo"/>
 			<item value="com.vtech.iocdi"/>
 			<item value="com.vtech.iocdemo2"/>
 			<item value="com.vtech.iocdemo"/>
 		</list>
 		<list key="name">
+			<item value="Spring-hibernate demo"/>
 			<item value="Spring - Hibernate demo"/>
 			<item value="IOC and DI demo"/>
 			<item value="IOC DEMO - Spring"/>
 			<item value="Spring - IOC Demo"/>
 		</list>
 		<list key="artifactId">
+			<item value="com.vtech.springhibernatedemo"/>
 			<item value="shdemo"/>
 			<item value="iocdi"/>
 			<item value="iocdemo2"/>
@@ -75,5 +79,18 @@
 	<section name="org.eclipse.m2e.core.pom.overview">
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="com.vtech.sms"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="sms"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
 	</section>
 </section>

@@ -1,0 +1,91 @@
+package com.vtech.sms.config;
+
+import java.util.Properties;
+import javax.sql.DataSource;
+import org.hibernate.SessionFactory;
+import org.hibernate.jpa.HibernatePersistenceProvider;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+import com.vtech.sms.entity.Student;
+
+import jakarta.validation.Validator;
+
+@Configuration
+@ComponentScan(basePackages = "com.vtech.sms")
+@EnableTransactionManagement
+public class AppConfig {
+
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource ds = new DriverManagerDataSource();
+		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		ds.setUrl("jdbc:mysql://localhost:3306/test_db");
+		ds.setUsername("root");
+		ds.setPassword("root");
+		return ds;
+	}
+	
+//	@Bean
+//	public LocalSessionFactoryBean sessionFactory() {
+//		LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
+//		factory.setDataSource(dataSource());
+//		factory.setAnnotatedClasses(Student.class);
+//		
+//		Properties props = new Properties();
+//		props.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+//		props.put("hibernate.hbm2ddl.auto", "update");
+//		props.put("hibernate.show_mysql", "true");
+//		props.put("hibernate.format_mysql", "true");
+//		
+//		factory.setHibernateProperties(props);
+//		return factory;
+//	}
+	
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+		emf.setDataSource(dataSource());
+		emf.setPackagesToScan("com.vtech.sms.entity");
+		
+		emf.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+		
+		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+		emf.setJpaVendorAdapter(vendorAdapter);
+		
+		Properties props = new Properties();
+		props.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		props.put("hibernate.hbm2ddl.auto", "update");
+		props.put("hibernate.show_mysql", "true");
+		props.put("hibernate.format_mysql", "true");
+		
+		emf.setJpaProperties(props);	
+		return emf;
+	}
+	
+//	@Bean
+//	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+//		return new HibernateTransactionManager(sessionFactory);
+//	}
+	
+	@Bean
+	public JpaTransactionManager transactionManager() {
+		JpaTransactionManager tx = new JpaTransactionManager();
+		tx.setEntityManagerFactory(entityManagerFactory().getObject());
+		return tx;
+	}
+	
+	@Bean
+	public Validator validator() {
+		return new LocalValidatorFactoryBean();
+	}
+}

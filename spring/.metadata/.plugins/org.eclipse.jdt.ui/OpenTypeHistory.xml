@@ -1,5 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=shdemo/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.vtech.shdemo.dao{StudentDAO.java[StudentDAO" modifiers="513" timestamp="1762770260709"/>
-    <typeInfo handle="=shdemo/C:\/Users\/admin\/.p2\/pool\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.6.v20250130-0529\/jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/21\/docs\/api\/=/=/maven.pomderived=/true=/&lt;java.lang(RuntimeException.class[RuntimeException" modifiers="33" timestamp="1738195554000"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

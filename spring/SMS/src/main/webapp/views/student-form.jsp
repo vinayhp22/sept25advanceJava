@@ -1,0 +1,147 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Form</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header */
+    .header {
+        background: #004aad;
+        color: white;
+        padding: 15px 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+        background: #222;
+        color: #ddd;
+        padding: 10px;
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+    }
+
+    /* Centered form container */
+    .form-container {
+        width: 450px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px 30px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 10px #ccc;
+    }
+
+    .form-container h2 {
+        text-align: center;
+        color: #004aad;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        background: #28a745;
+        color: white;
+        padding: 12px 0;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .btn-submit:hover {
+        background: #218838;
+    }
+
+</style>
+
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        Student Management System
+    </div>
+
+	<div>
+		<p style="color:red;">${errors}</p>
+	</div>
+	
+    <!-- Form Card -->
+    <div class="form-container">
+        <h2>
+            <c:if test="${student.id == null}">
+                Add New Student
+            </c:if>
+            <c:if test="${student.id != null}">
+                Update Student
+            </c:if>
+        </h2>
+
+        <form action="saveStudent" method="post">
+            
+            <input type="hidden" name="id" value="${student.id}">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" value="${student.name}"  >
+            </div>
+
+            <div class="form-group">
+                <label>Mobile</label>
+                <input type="number" name="mobile" value="${student.mobile}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Course</label>
+                <select name="course" required>
+                	<option value="">Select the course</option>
+                	<option value="JAVA_FULL_STACK" ${student.course == 'JAVA_FULL_STACK' ? 'selected' : '' }>Java Full Stack</option>
+                	<option value="PYTHON_FULL_STACK" ${student.course == 'PYTHON_FULL_STACK' ? 'selected' : '' }>Python Full Stack</option>
+                	<option value="DATA_ANALYTICS" ${student.course == 'DATA_ANALYTICS' ? 'selected' : '' }>Data Analytics</option>
+                	<option value="DATA_SCIENCE" ${student.course == 'DATA_SCIENCE' ? 'selected' : '' }>Data Science</option>
+                	<option value="AI_ML" ${student.course == 'AI_ML' ? 'selected' : '' }>AI ML</option>
+                </select>
+            </div>
+
+            <button class="btn-submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2025 Student Management Portal | All Rights Reserved
+    </div>
+
+</body>
+</html>

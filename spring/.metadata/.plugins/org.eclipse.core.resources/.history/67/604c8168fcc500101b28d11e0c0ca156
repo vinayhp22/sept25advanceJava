@@ -1,0 +1,5 @@
+package com.vtech.student.mngtsys.service;
+
+public class StudentServiceImpl implements StudentService {
+
+}

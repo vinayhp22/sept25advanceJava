@@ -1,0 +1,12 @@
+package com.vtech.sms.repository;
+
+import com.vtech.sms.enitity.Student;
+
+public interface StudentRepository {
+
+	void saveStudent(Student student);
+	
+	Student getStudent(int id);
+	
+	void updateStudent(Student student);
+}

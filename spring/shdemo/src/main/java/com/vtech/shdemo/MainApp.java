@@ -14,7 +14,7 @@ public class MainApp {
 		StudentDTO dto = (StudentDTO)context.getBean("studentDTO");
 		
 		//Create
-		Student student = new Student("Manoj Kumar", "manoj@gmail.ac.in", -5);
+		Student student = new Student("", "manoj@gmail.ac.in", -5);
 		dto.addStudent(student);
 		System.out.println("Saved successfully");
 		

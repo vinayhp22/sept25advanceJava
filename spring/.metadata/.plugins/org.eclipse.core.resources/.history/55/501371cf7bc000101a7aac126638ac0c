@@ -1,0 +1,6 @@
+package com.vtech.sms.repository;
+
+public interface StudentRepository {
+
+	void saveStudent();
+}

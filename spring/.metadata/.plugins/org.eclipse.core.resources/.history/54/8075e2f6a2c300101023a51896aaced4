@@ -1,0 +1,34 @@
+package com.vtech.sms.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vtech.sms.entity.Student;
+import com.vtech.sms.service.StudentService;
+
+@Controller
+@RequestMapping("/students")
+public class StudentController {
+
+	@Autowired
+	private StudentService service;
+	
+	@PostMapping("/saveStudent")
+	public String saveStudent(@ModelAttribute("student") Student student) {
+		System.out.println(student.toString());
+		service.saveStudent(student);
+		return "redirect:/students/index";
+	}
+	
+	@GetMapping("/showForm")
+	public String showForm(Model model) {
+		System.out.println("Show Form called...");
+		model.addAttribute("student", new Student());
+		return "student-form";
+	}
+}

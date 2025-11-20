@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Copy Project &apos;StudentManagementSystem&apos;" description="Copy Project &apos;StudentManagementSystem&apos;" destination="C:/Vtech/spring" element="/StudentManagementSystem" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="SMS" stamp="1763547437012"/>&#x0A;<refactoring comment="Delete resource &apos;mngtsys&apos;" deleteContents="true" description="Delete resource &apos;mngtsys&apos;" element1="/mngtsys" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1763632171562"/>
+</session>

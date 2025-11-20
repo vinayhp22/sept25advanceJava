@@ -1,0 +1,18 @@
+package com.vtech.sms.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration
+@ComponentScan(basePackages = "com.vtech.sms")
+@EnableTransactionManagement
+public class AppConfig {
+
+	public DataSource dateSource() {
+		
+		return null;
+	}
+}

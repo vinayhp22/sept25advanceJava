@@ -1,0 +1,8 @@
+package com.vtech.student.mngtsys.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Student {
+
+}

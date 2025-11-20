@@ -1,0 +1,14 @@
+package com.vtech.student.mngtsys.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "vtech_students")
+public class Student {
+
+	private String name;
+	private Integer age;
+	private Long mobile;
+	private String cource;
+}

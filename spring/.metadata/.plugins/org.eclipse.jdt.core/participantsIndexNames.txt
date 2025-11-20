@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Vtech\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\984113242.index
+\StudentManagementSystem\src\main\java
+C:\Vtech\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2208167853.index
+\SMS\src\main\java

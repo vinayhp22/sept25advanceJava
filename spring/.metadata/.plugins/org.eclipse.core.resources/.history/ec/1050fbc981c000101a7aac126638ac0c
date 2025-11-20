@@ -1,0 +1,43 @@
+package com.vtech.sms.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.vtech.sms.enitity.Student;
+
+public class StudentServiceImpl implements StudentService{
+
+	@Autowired
+	private StudentService service;
+	
+	@Override
+	public void saveStudent(Student student) {
+		service.saveStudent(student);
+	}
+
+	@Override
+	public Student getStudent(int id) {
+
+		return null;
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+
+		
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+
+		return null;
+	}
+
+	@Override
+	public void deleteStudent(int id) {
+
+		
+	}
+
+}

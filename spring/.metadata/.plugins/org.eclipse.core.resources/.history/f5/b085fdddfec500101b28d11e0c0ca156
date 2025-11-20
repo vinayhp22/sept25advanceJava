@@ -1,0 +1,5 @@
+package com.vtech.student.mngtsys.controller;
+
+public class StudentController {
+
+}

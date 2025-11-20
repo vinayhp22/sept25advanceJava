@@ -1,0 +1,7 @@
+127.0.0.1 - - [19/Nov/2025:16:17:51 +0530] "GET / HTTP/1.1" 404 752
+127.0.0.1 - - [19/Nov/2025:16:19:34 +0530] "GET / HTTP/1.1" 404 752
+127.0.0.1 - - [19/Nov/2025:16:21:53 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [19/Nov/2025:16:21:54 +0530] "GET /sms/WEB-INF/classes/com/vtech/sms/repository/StudentRepositoryImpl.java HTTP/1.1" 404 683
+0:0:0:0:0:0:0:1 - - [19/Nov/2025:16:21:54 +0530] "GET /favicon.ico HTTP/1.1" 404 763
+0:0:0:0:0:0:0:1 - - [19/Nov/2025:16:22:20 +0530] "GET /sms/students/list HTTP/1.1" 200 3447
+0:0:0:0:0:0:0:1 - - [19/Nov/2025:16:43:17 +0530] "GET /sms/students/update?id=1 HTTP/1.1" 200 3308

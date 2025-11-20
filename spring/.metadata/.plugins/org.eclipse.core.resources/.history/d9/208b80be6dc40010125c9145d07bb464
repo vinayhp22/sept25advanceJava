@@ -1,0 +1,67 @@
+package com.vtech.sms.service;
+
+import java.util.List;
+import java.util.Set;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.vtech.sms.entity.Student;
+import com.vtech.sms.exceptions.InvalidStudentDataException;
+import com.vtech.sms.repository.StudentRepository;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+
+    private final Validator validator;
+
+	@Autowired
+	private StudentRepository repo;
+
+    StudentServiceImpl(Validator validator) {
+        this.validator = validator;
+    }
+	
+	@Override
+	public String saveStudent(Student student) {
+		String violations = validateStudent(student);
+		if(!violations.isEmpty()) {
+			return violations;
+		}
+		repo.saveStudent(student);
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		return repo.getStudent(id);
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+		validateStudent(student);
+		repo.updateStudent(student);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return repo.getAllStudents();
+	}
+
+	@Override
+	public void deleteStudent(int id) {
+		repo.deleteStudent(id);
+	}
+	
+	public String validateStudent(Student student) {
+		Set<ConstraintViolation<Student>> violations = validator.validate(student);
+		if(!violations.isEmpty()) {
+			StringBuilder sb = new StringBuilder();
+			for(ConstraintViolation<Student> violation : violations) {
+				sb.append(violation.getMessage()).append(". ");
+			}
+			return sb.toString();
+		}
+		return null;
+	}
+
+}
