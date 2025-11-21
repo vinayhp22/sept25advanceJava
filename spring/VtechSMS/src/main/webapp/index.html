@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Welcome to SpringBoot</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Mobile</th>
+				<th>Course</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody id="studentTableBody"></tbody>
+	</table>
+	
+	<div>
+		<h3 id="form-title">Add Student</h3>
+		<div>
+			<input type="hidden" name="id" id="id">
+			Name: <input type="text" name="name" id="name">
+			Age: <input type="number" name="age" id="age">
+			Mobile: <input type="text" name="mobile" id="mobile">
+			Course: <input type="text" name="cource" id="cource">
+			<input type="submit" value="Submit" onclick="saveStudent()">
+			<button type="button" onclick="resetForm()">Reset</button>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	// Fetching Data
+	function loadStudents(){
+		fetch("http://localhost:8080/student")
+		.then(res => res.json())
+		.then(data => {
+			let rows = '';
+			data.forEach(s => {
+				rows += 
+					`<tr>
+						<td>${s.id}</td>
+						<td>${s.name}</td>
+						<td>${s.age}</td>
+						<td>${s.mobile}</td>
+						<td>${s.cource}</td>
+						<td><button onclick="editStudent(${s.id}, '${s.name}',${s.age},${s.mobile},'${s.cource}')">Update</button></td>						
+						<td><button onclick="deleteStudent(${s.id})">Delete</button></td>						
+					</tr>
+					`;
+			});
+			document.getElementById("studentTableBody").innerHTML = rows;
+		})
+	}
+	
+	//Saving Data
+	function saveStudent(){
+		const id = document.getElementById("id").value.trim();
+		const student = {
+			id : document.getElementById("id").value.trim(),
+			name : document.getElementById("name").value,
+			age : document.getElementById("age").value,
+			mobile : document.getElementById("mobile").value,
+			cource : document.getElementById("cource").value
+		};
+		let url = "http://localhost:8080/student";
+		let method = "POST";
+		
+		if(id){
+			url = url + "/" + id;
+			method = "PUT";
+		}
+		
+		fetch(url, {
+			method : method,
+			headers: {"Content-Type":"application/json"},
+			body:JSON.stringify(student)
+		})
+			.then(() => {
+				loadStudents();
+				resetForm();
+				alert("Student saved Successfully...");
+			});
+	}
+	
+	function editStudent(id, name, age, mobile, cource){
+		document.getElementById("id").value = id;
+		document.getElementById("name").value = name;
+		document.getElementById("age").value = age;
+		document.getElementById("mobile").value = mobile;
+		document.getElementById("cource").value = cource;
+
+		document.getElementById("form-title").innerText = "Update Student";
+	}
+
+	function deleteStudent(id){
+		fetch("http://localhost:8080/student/"+id, {
+			method: "DELETE"
+		})
+			.then(()=>{
+				loadStudents();
+				alert("Deleted Successfully!!!");
+			})
+	}
+	
+	function resetForm(){
+		document.getElementById("id").value = "";
+		document.getElementById("name").value = "";
+		document.getElementById("age").value = "";
+		document.getElementById("mobile").value = "";
+		document.getElementById("cource").value = "";
+		document.getElementById("form-title").innerText = "Add Student";
+
+	}
+	
+	loadStudents();
+	
+	</script>
+</body>
+</html>
