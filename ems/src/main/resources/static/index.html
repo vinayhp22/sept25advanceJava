@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS CRUD</title>
+</head>
+<body>
+<h1>Employee Management</h1>
+
+<h2>Create Employee</h2>
+<form id="createForm">
+    <label>Name: <input type="text" id="createName" required></label><br><br>
+    <label>Mobile: <input type="number" id="createMobile" required></label><br><br>
+    <label>Email: <input type="email" id="createEmail" required></label><br><br>
+    <label>Salary: <input type="number" step="0.01" id="createSalary" required></label><br><br>
+    <button type="submit">Save</button>
+</form>
+
+<hr>
+
+<h2>All Employees</h2>
+<button onclick="loadEmployees()">Refresh List</button>
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="employeeTableBody"></tbody>
+</table>
+
+<script>
+    const baseUrl = '/api/ems';
+
+    document.getElementById('createForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const payload = {
+            name: document.getElementById('createName').value,
+            mobile: Number(document.getElementById('createMobile').value),
+            email: document.getElementById('createEmail').value,
+            salary: Number(document.getElementById('createSalary').value)
+        };
+
+        const response = await fetch(baseUrl + '/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            this.reset();
+            loadEmployees();
+        } else {
+            alert('Failed to create employee');
+        }
+    });
+
+    async function updateEmployee(id, currentName, currentMobile, currentEmail, currentSalary) {
+        const name = prompt('Name:', currentName);
+        if (name === null) return;
+        const mobile = prompt('Mobile:', currentMobile);
+        if (mobile === null) return;
+        const email = prompt('Email:', currentEmail);
+        if (email === null) return;
+        const salary = prompt('Salary:', currentSalary);
+        if (salary === null) return;
+
+        const payload = {
+            name: name,
+            mobile: Number(mobile),
+            email: email,
+            salary: Number(salary)
+        };
+
+        const response = await fetch(baseUrl + '/' + id, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            loadEmployees();
+        } else {
+            alert('Failed to update employee');
+        }
+    }
+
+    async function deleteEmployee(id) {
+        if (!confirm('Delete employee with id ' + id + '?')) return;
+
+        const response = await fetch(baseUrl + '/' + id, { method: 'DELETE' });
+        if (response.status === 204) {
+            loadEmployees();
+        } else {
+            alert('Failed to delete employee');
+        }
+    }
+
+    async function loadEmployees() {
+        const response = await fetch(baseUrl);
+        if (!response.ok) return;
+
+        const employees = await response.json();
+        const tbody = document.getElementById('employeeTableBody');
+        tbody.innerHTML = '';
+
+        employees.forEach(function (employee) {
+            const row = document.createElement('tr');
+            row.innerHTML =
+                '<td>' + employee.id + '</td>' +
+                '<td>' + employee.name + '</td>' +
+                '<td>' + employee.mobile + '</td>' +
+                '<td>' + employee.email + '</td>' +
+                '<td>' + employee.salary + '</td>' +
+                '<td>' +
+                '<button onclick="updateEmployee(' + employee.id + ', \'' + String(employee.name).replace(/'/g, "\\'") + '\', \'' + employee.mobile + '\', \'' + String(employee.email).replace(/'/g, "\\'") + '\', \'' + employee.salary + '\')">Update</button> ' +
+                '<button onclick="deleteEmployee(' + employee.id + ')">Delete</button>' +
+                '</td>';
+            tbody.appendChild(row);
+        });
+    }
+
+    loadEmployees();
+</script>
+</body>
+</html>

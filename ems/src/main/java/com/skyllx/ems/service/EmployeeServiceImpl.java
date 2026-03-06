@@ -33,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public void updateEmployee(Employee employee) {
-
+        repo.save(employee);
     }
 
     @Override
