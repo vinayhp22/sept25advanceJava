@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: sppring-security-demo
+  web:
+    resources:
+      static-locations: classpath:/webapp/
+#  security:
+#    user:
+#      name: skyllx
+#      password: skyllx@123
+
+server:
+  port: 8080
+

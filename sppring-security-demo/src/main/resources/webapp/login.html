@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+<form action="/perform_login" method="post">
+    <input type="text" name="username" placeholder="Please Enter the username"> <br><br>
+    <input type="password" name="password" placeholder="Please Enter the password"> <br><br>
+    <button type="submit">Login</button>
+</form>
+<p style="color:red;">
+    <script>
+        if (window.location.search.includes("error=true")) {
+            document.write("Invalid username or password.");
+        }
+    </script>
+</p>
+</body>
+</html>
